@@ -1,6 +1,7 @@
 .profile__addButton {
     width: 150px;
     height: 50px;
+    padding: 0;
     background-color: #000;
     background-image: url('/images/addButton.svg');
     background-position: center;
@@ -8,6 +9,7 @@
     border: 2px solid white;
     border-radius: 2px;
     cursor: pointer;
+    margin-right: 0px;
 }
 .profile__addButton:focus {
     border: 2px solid white;
