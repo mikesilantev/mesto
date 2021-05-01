@@ -1,0 +1,14 @@
+.profile__addButton {
+    width: 150px;
+    height: 50px;
+    background-color: #000;
+    background-image: url('/images/addButton.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 2px solid white;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.profile__addButton:focus {
+    border: 2px solid white;
+}
