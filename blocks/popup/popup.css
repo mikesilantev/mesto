@@ -5,7 +5,7 @@
     bottom: 0;
     left: 0;
     text-align: center;
-    display: flex;
+    display: none;
 }
 .popup:before{
     content: '';
@@ -15,5 +15,5 @@
     bottom: 0;
     left: 0;
     background-color: #000;
-    opacity: .3;
+    opacity: .5;
 }
