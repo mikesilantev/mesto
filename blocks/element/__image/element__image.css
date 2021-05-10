@@ -1,13 +1,19 @@
-/* .element__image {
-    max-width: 282px;
-    height: 282px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 10px 10px 0 0;
-} */
 .element__image {
     max-width: 100%;
     height: 284px;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
+}
+@media screen and (max-width: 768px){
+    .element__image {
+        max-width: 100%;
+        height: 361px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+    }
+}
+@media screen and (max-width: 320px){
+    .element__image {
+        height: 282px;
+    }
 }
