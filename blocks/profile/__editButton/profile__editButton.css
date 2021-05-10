@@ -15,3 +15,12 @@
     border: 1px solid #fff;
     border-radius: 0px;
 }
+
+@media screen and (max-width: 320px){
+    .profile__editButton {
+        width: 18px;
+        height: 18px;
+        margin: 8px 0 0 10px;
+    }
+    
+}

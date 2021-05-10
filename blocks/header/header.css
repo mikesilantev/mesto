@@ -2,9 +2,16 @@
     margin: 45px auto 0 ;
     max-width: calc(100% - 200px * 2);
 }
-@media screen and (max-width: 767px){
+@media screen and (max-width: 1280px){
+    .header{
+        max-width: calc(100% - 27px * 2);
+    }
+}
+
+
+/* @media screen and (max-width: 767px){
     .header{
         margin-top: 28px;
         max-width: calc(100% - 27px * 2);
     }
-}
+} */

@@ -2,3 +2,14 @@
     display: flex;
     align-items: center
 }
+/* @media screen and (max-width: 850px) {
+    .profile__wrap {
+        max-width: 100%;
+        gap: 15px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .profile__wrap {
+        flex-direction: column;
+    }
+} */
