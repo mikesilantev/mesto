@@ -12,12 +12,24 @@
     margin-right: 0px;
 }
 
-/* @media screen and (max-width: 1279px) {
+@media screen and (max-width: 850px) {
     .profile__addButton {
         width: 50px;
     }
-    
 }
+@media screen and (max-width: 620px) {
+    .profile__addButton {
+        margin-top: 25px;
+        width: 300px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .profile__addButton {
+        margin-top: 36px;
+        width: 282px;
+    }
+}
+/*
 @media screen and (max-width: 960px) {
     .profile__addButton {
        

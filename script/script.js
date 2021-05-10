@@ -2,7 +2,8 @@
 let formElement = document.querySelector('.popup');
 let profileElement = document.querySelector('.profile');
 
-let editButton = profileElement.querySelector('.profile__editButton');
+// let editButton = profileElement.querySelector('.profile__editButton');
+let editButton = profileElement.querySelector('.profile__title');
 let profileTitle = profileElement.querySelector('.profile__title');
 let profileJob = profileElement.querySelector('.profile__subtitle');
 

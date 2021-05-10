@@ -2,12 +2,18 @@
     display: flex;
     align-items: center
 }
-/* @media screen and (max-width: 850px) {
+@media screen and (max-width: 620px) {
     .profile__wrap {
-        max-width: 100%;
+        flex-direction: column;
         gap: 15px;
     }
 }
+@media screen and (max-width: 320px) {
+    .profile__wrap {
+        gap: 0px;
+    }
+}
+/*
 @media screen and (max-width: 320px) {
     .profile__wrap {
         flex-direction: column;

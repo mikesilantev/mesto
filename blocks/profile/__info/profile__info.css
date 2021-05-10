@@ -1,6 +1,21 @@
 .profile__info {
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (max-width: 450px){
+    .profile__info {
+        margin-top: 26px;
+    }
+}
+
+/* .profile__info {
     display: grid;
     grid-template-areas: 
     "name button"
     "subtitle subtitle";
 }
+@media screen and (max-width: 450px){
+    .profile__info {
+        margin-top: 26px;
+    }
+} */

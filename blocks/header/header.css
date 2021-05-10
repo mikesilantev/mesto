@@ -7,6 +7,12 @@
         max-width: calc(100% - 27px * 2);
     }
 }
+@media screen and (max-width: 620px){
+    .header{
+        margin-top: 20px;
+    }
+}
+
 
 
 /* @media screen and (max-width: 767px){

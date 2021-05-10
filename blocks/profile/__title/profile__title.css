@@ -3,10 +3,42 @@
     font-weight: 500;
     font-size: 42px;
     line-height: 48px;
+    pointer-events: none;
 }
-/* @media screen and (max-width: 1100px) {
+.profile__title:after{
+    pointer-events: all;
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background-color: #000;
+    background-image: url('/images/editButton.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid white;
+    cursor: pointer;
+    margin: 16px 0 0 18px;
+}
+@media screen and (max-width: 768px) {
     .profile__title{
         font-size: 30px;
+    }
+}
+@media screen and (max-width: 620px) {
+    .profile__title{
+        font-size: 36px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .profile__title{
+        font-size: 27px;
+        line-height: 33px;
+    }
+    .profile__title:after{
+        width: 18px;
+        height: 18px;
+        margin: 6px 0 0 10px;
     }
 }
 
@@ -14,6 +46,8 @@
 
 
 
+
+/*
 @media screen and (max-width: 320px) {
     .profile__title{
         font-weight: 500;
