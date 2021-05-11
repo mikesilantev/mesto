@@ -5,7 +5,6 @@ let editButton = profileElement.querySelector('.profile__title');
 let profileTitle = profileElement.querySelector('.profile__title');
 let profileJob = profileElement.querySelector('.profile__subtitle');
 let avatarImg = document.querySelector('.profile__avatar');
-console.log(avatarImg);
 // popup
 let exitButton = formElement.querySelector('.popup__exit-button');
 let nameInput = formElement.querySelector('.popup__name-input');
