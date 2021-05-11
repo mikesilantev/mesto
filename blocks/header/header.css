@@ -1,0 +1,15 @@
+.header {
+    margin: 45px auto 0 ;
+    max-width: calc(100% - 200px * 2);
+}
+
+@media screen and (max-width: 1179px){
+    .header{
+        max-width: calc(100% - 27px * 2);
+    }
+}
+@media screen and (max-width: 620px){
+    .header{
+        margin-top: 20px;
+    }
+}
