@@ -22,15 +22,11 @@
 }
 @media screen and (max-width: 768px) {
     .profile__title{
-        font-size: 30px;
-    }
-}
-@media screen and (max-width: 620px) {
-    .profile__title{
         font-size: 36px;
     }
 }
-@media screen and (max-width: 320px) {
+
+@media screen and (max-width: 425px) {
     .profile__title{
         font-size: 27px;
         line-height: 33px;
@@ -38,6 +34,7 @@
         margin: 0 auto;
         text-align: center;
     }
+
     .profile__title:after{
         width: 18px;
         height: 18px;
