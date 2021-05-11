@@ -6,7 +6,7 @@
     height: 40px;
     border: none;
     background: none;
-    background-image: url('./images/closeButton.svg');
+    background-image: url('../../../images/closeButton.svg');
     background-size: cover;
     cursor: pointer;
 }
