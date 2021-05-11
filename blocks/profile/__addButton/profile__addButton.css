@@ -11,7 +11,6 @@
     cursor: pointer;
     margin-right: 0px;
 }
-
 @media screen and (max-width: 850px) {
     .profile__addButton {
         width: 50px;
@@ -29,16 +28,6 @@
         width: 282px;
     }
 }
-/*
-@media screen and (max-width: 960px) {
-    .profile__addButton {
-       
-    }
-    
-} */
-
-
-
 .profile__addButton:focus {
     border: 2px solid white;
 }
