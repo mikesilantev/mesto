@@ -10,65 +10,66 @@
 <body class="root">
     <!-- header -->
     <header class="header">
-        <a href="https://mikesilantev.github.io/mesto/index.html" target="_self" class="header__logo" title="Mesto"></a>
+        <a href="/" target="_self" class="header__logo" title="Mesto"></a>
     </header>
+    <main>
     <!-- profile -->
     <section class="profile">
         <div class="profile__wrap">
             <img src="./images/avatar.jpg" alt="Загрузите аватар..." title="Загрузите аватар..." class="profile__avatar">
             <div class="profile__info">
                 <h1 class="profile__title">Мишаня Силантьев</h1>
-                <input type="button" class="profile__editButton link">
+                <input type="button" class="profile__edit-button link">
                 <p class="profile__subtitle">Исследователь JS</p>
             </div>
         </div>
-        <a href="#" class="profile__addButton link" target="_self" ></a>
+        <input type="button" class="profile__add-button link" target="_self" ></input>
         <!-- <input type="button" class="profile__addButton link" value="W3C Ругается на пустое значение"> -->
     </section>
     <!-- elements -->
     <section class="elements">
-        <figure class="element">
-            <img src="./images/1.jpg" alt="Рыбка 1" class="element__image">
+        <article class="element">
+            <img src="./images/1.jpg" alt="Zebrasoma flavescenes" class="element__image">
             <div class="element__bottom">
                 <h3 class="element__title">Zebrasoma flavescenes</h3>
-                <a class="element__like link" href="#" target="_self"></a>
+                <input type="button" class="element__like link">
             </div>
-        </figure>
-        <figure class="element">
-            <img src="./images/2.jpg" alt="Рыбка 2" class="element__image">
+        </article>
+        <article class="element">
+            <img src="./images/2.jpg" alt="Paracanthurus hepatus" class="element__image">
             <div class="element__bottom">
                 <h3 class="element__title">Paracanthurus hepatus</h3>
-                <a class="element__like link" href="#" target="_self"></a>
+                <input type="button" class="element__like link">
             </div>
-        </figure>
-        <figure class="element">
-            <img src="./images/5.jpg" alt="Рыбка 3" class="element__image">
+        </article>
+        <article class="element">
+            <img src="./images/5.jpg" alt="Balistoides conspicillu" class="element__image">
             <div class="element__bottom">
                 <h3 class="element__title">Balistoides conspicillum</h3>
-                <a class="element__like link" href="#" target="_self"></a>
+                <input type="button" class="element__like link">
             </div>
-        </figure>
-        <figure class="element">
-            <img src="./images/4.jpg" alt="Рыбка 4" class="element__image">
+        </article>
+        <article class="element">
+            <img src="./images/4.jpg" alt="Acanthurus sohal" class="element__image">
             <div class="element__bottom">
                 <h3 class="element__title">Acanthurus sohal</h3>
-                <a class="element__like link" href="#" target="_self"></a>
+                <input type="button" class="element__like link">
             </div>
-        </figure>
-        <figure class="element">
-            <img src="./images/3.jpg" alt="Рыбка 5" class="element__image">
+        </article>
+        <article class="element">
+            <img src="./images/3.jpg" alt="Carcharhinus obscurus" class="element__image">
             <div class="element__bottom">
                 <h3 class="element__title">Carcharhinus obscurus</h3>
-                <a class="element__like link" href="#" target="_self"></a>
+                <input type="button" class="element__like link">
             </div>
-        </figure>
-        <figure class="element">
-            <img src="./images/6.jpg" alt="Рыбка 6" class="element__image">
+        </article>
+        <article class="element">
+            <img src="./images/6.jpg" alt="Chelmon rostratus" class="element__image">
             <div class="element__bottom">
                 <h3 class="element__title">Chelmon rostratus</h3>
-                <a class="element__like link" href="#" target="_self"></a>
+                <input type="button" class="element__like link">
             </div>
-        </figure>
+        </article>
     </section>
     <div class="popup">
         <form action="#" class="popup__container">
@@ -79,6 +80,7 @@
             <a href="#" class="popup__exit-button link" target="_self"></a>
         </form>
     </div>
+    </main>
     <!-- footer -->
     <footer class="footer">
         <a href="#" class="footer__link link" target="_self">© 2020 Mesto Russia</a>

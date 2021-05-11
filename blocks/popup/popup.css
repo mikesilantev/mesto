@@ -5,7 +5,7 @@
     bottom: 0;
     left: 0;
     text-align: center;
-    display: none;
+    /* display: none; */
 }
 .popup:before{
     content: '';

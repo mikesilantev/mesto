@@ -1,8 +1,11 @@
 .element__like {
     width: 22px;
     height: 19px;
+    background: none;
     background-image: url('../../../images/like.svg');
     cursor: pointer;
+    border: none;
+
 }
 .element__like:focus{
     background-image: url('../../../images/like_active.svg');
