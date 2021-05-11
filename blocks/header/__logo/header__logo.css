@@ -2,7 +2,7 @@
     display: block;
     width: 142px;
     height: 33px;
-    background-image: url('/images/logo.svg');
+    background-image: url('./images/logo.svg');
     background-size: contain;
     -webkit-transition: linear .5s;
     -o-transition: linear .5s;
