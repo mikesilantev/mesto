@@ -1,7 +1,7 @@
 // profile
 let formElement = document.querySelector('.popup');
 let profileElement = document.querySelector('.profile');
-let editButton = profileElement.querySelector('.profile__title');
+let editButton = profileElement.querySelector('.profile__editButton');
 let profileTitle = profileElement.querySelector('.profile__title');
 let profileJob = profileElement.querySelector('.profile__subtitle');
 let avatarImg = document.querySelector('.profile__avatar');
@@ -28,5 +28,6 @@ function formSubmitHandler (evt) {
 }
 
 editButton.addEventListener('click', editProfile);
+profileTitle.addEventListener('click', editProfile);
 exitButton.addEventListener('click', exitProfile);
 formElement.addEventListener('submit', formSubmitHandler);

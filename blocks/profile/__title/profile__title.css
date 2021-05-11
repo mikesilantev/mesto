@@ -3,26 +3,30 @@
     font-weight: 500;
     font-size: 42px;
     line-height: 48px;
-    pointer-events: none;
 }
-.profile__title:after{
-    pointer-events: all;
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    padding: 0;
-    background: #000 url('../../../images/editButton.svg') center no-repeat;
-    border: 1px solid white;
-    cursor: pointer;
-    margin: 16px 0 0 18px;
-}
-.profile__title:hover::after{
-    opacity: .8;
-}
+
 @media screen and (max-width: 768px) {
     .profile__title{
         font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .profile__title{
+        pointer-events: none;
+    }
+    .profile__title:after{
+        pointer-events: all;
+        content: '';
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        padding: 0;
+        background: #000 url('../../../images/editButton.svg') center no-repeat;
+        border: 1px solid white;
+        cursor: pointer;
+        margin: 16px 0 0 18px;
+        z-index: 5;
     }
 }
 
@@ -36,8 +40,6 @@
     }
 
     .profile__title:after{
-        width: 18px;
-        height: 18px;
         margin: 6px 0 0 10px;
     }
 }
