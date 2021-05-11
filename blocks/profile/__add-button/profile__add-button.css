@@ -11,7 +11,17 @@
     cursor: pointer;
     margin-right: 0px;
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1220px) {
+    .profile__add-button {
+        width: 50px;
+    }
+}
+@media screen and (max-width: 1179px) {
+    .profile__add-button {
+        width: 150px;
+    }
+}
+@media screen and (max-width: 1025px) {
     .profile__add-button {
         width: 50px;
     }
