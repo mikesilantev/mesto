@@ -40,10 +40,3 @@
         text-align: center;
     }
 }
-
-@media screen and (max-width: 320px) {
-    .profile__title{
-        max-width: 189px;
-        border: 1px solid red;
-    }
-}
