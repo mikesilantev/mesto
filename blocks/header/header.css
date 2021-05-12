@@ -10,6 +10,7 @@
 }
 @media screen and (max-width: 620px){
     .header{
-        margin-top: 20px;
+        margin-top: 28px;
+        border: 1px solid red;
     }
 }
