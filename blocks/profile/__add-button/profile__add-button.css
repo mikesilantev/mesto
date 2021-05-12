@@ -9,7 +9,7 @@
     border: 2px solid white;
     border-radius: 2px;
     cursor: pointer;
-    margin-right: 0px;
+    box-sizing: border-box;
 }
 @media screen and (max-width: 1220px) {
     .profile__add-button {
@@ -34,7 +34,8 @@
 }
 @media screen and (max-width: 320px) {
     .profile__add-button {
-        margin-top: 36px;
+        margin-top: 32px;
+        background-size: 16px;
         width: 282px;
     }
 }
