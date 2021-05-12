@@ -1,13 +1,13 @@
 .popup__exit-button {
     position: absolute;
-    top: -40px;
-    right: -40px;
     width: 40px;
     height: 40px;
+    top: -40px;
+    right: -40px;
     border: none;
     background: none;
     background-image: url('../../../images/closeButton.svg');
-    background-size: cover;
+    background-position: center;
     cursor: pointer;
 }
 @media screen and (max-width: 470px){
