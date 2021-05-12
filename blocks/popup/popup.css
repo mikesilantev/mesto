@@ -3,6 +3,11 @@
     max-width: 430px;
     border-radius: 10px;
 }
+@media screen and (max-width: 320px){
+  .popup {
+    max-width: 282px;
+  }
+}
 /* @media screen and (max-width: 470px) {
   .popup {
 

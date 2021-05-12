@@ -10,10 +10,11 @@
     background-position: center;
     cursor: pointer;
 }
-@media screen and (max-width: 470px){
+@media screen and (max-width: 620px){
     .popup__exit-button {
-        top: -40px;
-        right: -10px;
+        background-size: 38px 38px;
+        top: -45px;
+        right: 5px;
         width: 26px;
         height: 26px;
     }
