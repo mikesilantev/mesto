@@ -5,7 +5,7 @@
     background: #000 url('../../../images/editButton.svg') center no-repeat;
     border: 1px solid white;
     cursor: pointer;
-    margin: 15px 0 0 18px;
+    margin: 16px 0 0 18px;
 }
 @media screen and (max-width: 920px) {
     .profile__edit-button {
