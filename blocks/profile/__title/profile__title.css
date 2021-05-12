@@ -7,7 +7,6 @@
     max-width: 450px;
     overflow: hidden;
     white-space: nowrap;
-    border: 1px solid red;
 }
 @media screen and (max-width: 1179px) {
     .profile__title{
@@ -32,24 +31,6 @@
         max-width: 300px;
     }
 }
-@media screen and (max-width: 600px) {
-    .profile__title{
-        pointer-events: none;
-    }
-    .profile__title:after{
-        pointer-events: all;
-        content: '';
-        position: absolute;
-        width: 18px;
-        height: 18px;
-        padding: 0;
-        background: #000 url('../../../images/editButton.svg') center no-repeat;
-        border: 1px solid white;
-        cursor: pointer;
-        margin: 16px 0 0 18px;
-        z-index: 5;
-    }
-}
 
 @media screen and (max-width: 425px) {
     .profile__title{
@@ -58,8 +39,10 @@
         margin: 0 auto;
         text-align: center;
     }
+}
 
-    .profile__title:after{
-        margin: 6px 0 0 10px;
+@media screen and (max-width: 320px) {
+    .profile__title{
+        max-width: 189px;
     }
 }
