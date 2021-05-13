@@ -1,6 +1,6 @@
 let formElement = document.querySelector('.popup__form');
 let profileElement = document.querySelector('.profile');
-let popupOverley = document.querySelector('.popup__overlay');
+let overleyPopup = document.querySelector('.overlay');
 
 //profile
 let profileTitle = profileElement.querySelector('.profile__title');
@@ -14,14 +14,14 @@ let jobInput = formElement.querySelector('.popup_job-input');
 
 //open
 function popup(){
-  popupOverley.classList.add('popup_opened');
+  overleyPopup.classList.add('popup_opened');
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileJob.textContent;
 }
 
 // close
 function popupClose(){
-  popupOverley.classList.remove('popup_opened');
+  overleyPopup.classList.remove('popup_opened');
 }
 
 //formSubmitHandler

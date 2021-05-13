@@ -29,8 +29,9 @@
 @import url(../blocks/footer/__link/footer__link.css);
 /* link   */
 @import url(../blocks/link/link.css);
+/* overley */
+@import url(../blocks/overlay/overlay.css);
 /* popup */
-@import url(../blocks/popup/__overlay/popup__overlay.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__title/popup__title.css);
