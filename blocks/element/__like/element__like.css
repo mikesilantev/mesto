@@ -2,6 +2,7 @@
     border: none;
     width: 22px;
     height: 19px;
+    background: none;
     background-image: url('../../../images/like.svg');
     cursor: pointer;
     font-size: 0;
