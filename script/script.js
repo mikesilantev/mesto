@@ -11,7 +11,7 @@ let exitButton = formElement.querySelector('.popup__exit-button');
 let nameInput = formElement.querySelector('.popup__input-name'); 
 let jobInput = formElement.querySelector('.popup__input-job'); 
 //open
-function popup(){
+function popupOpen(){
   overleyPopup.classList.add('popup_opened');
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileJob.textContent;
@@ -28,6 +28,6 @@ function formSubmitHandler (evt) {
     popupClose();
 }
 //Listener
-editButton.addEventListener('click', popup);
+editButton.addEventListener('click', popupOpen);
 exitButton.addEventListener('click', popupClose);
 formElement.addEventListener('submit', formSubmitHandler);
