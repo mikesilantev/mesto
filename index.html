@@ -1,107 +1,93 @@
 <!DOCTYPE html>
 <html lang="ru">
+
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Mesto - Russia</title>
-    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="stylesheet" href="./pages/index.css"/>
   </head>
+
   <body class="root">
+    <!-- header -->
     <header class="header">
-      <a
-        href="https://mikesilantev.github.io/mesto/index.html"
-        target="_self"
-        class="header__logo"
-        title="Mesto"
-      ></a>
+      <a href="https://mikesilantev.github.io/mesto/index.html" target="_self" class="header__logo" title="Mesto"></a>
     </header>
+    <!-- main -->
     <main>
+      <!-- profile -->
       <section class="profile">
         <div class="profile__wrap">
-          <img
-            src="./images/avatar.jpg"
-            alt="Загрузите аватар..."
-            class="profile__avatar"
-          />
+          <img src="./images/avatar.jpg" alt="Загрузите аватар..." class="profile__avatar"/>
           <div class="profile__info">
-            <h1 class="profile__title">Жак-Ив Кусто</h1>
-            <input type="button" class="profile__edit-button link" />
-            <p class="profile__subtitle">Исследователь океана</p>
+            <h1 class="profile__title">Мишаня Силантьев</h1>
+            <input type="button" class="profile__edit-button link" value="edit"/>
+            <p class="profile__subtitle">Исследователь JS</p>
           </div>
         </div>
-        <input type="button" class="profile__add-button link" />
+        <input type="button" class="profile__add-button link" value="add"/>
       </section>
       <!-- elements -->
       <section class="elements">
         <article class="element">
-          <img src="./images/1.jpg" alt="Рыбка 1" class="element__image" />
-          <div class="element__bottom">
+          <img src="./images/1.jpg" alt="Zebrasoma flavescenes" class="element__image"/>
+          <div class="element__text-wrap">
             <h3 class="element__title">Zebrasoma flavescenes</h3>
-            <input type="button" value="" class="element__like link" />
+            <input type="button" class="element__like link" value="like"/>
           </div>
         </article>
         <article class="element">
-          <img src="./images/2.jpg" alt="Рыбка 2" class="element__image" />
-          <div class="element__bottom">
+          <img src="./images/2.jpg" alt="Paracanthurus hepatus" class="element__image"/>
+          <div class="element__text-wrap">
             <h3 class="element__title">Paracanthurus hepatus</h3>
-            <input type="button" value="" class="element__like link" />
+            <input type="button" class="element__like link" value="like"/>
           </div>
         </article>
         <article class="element">
-          <img src="./images/5.jpg" alt="Рыбка 3" class="element__image" />
-          <div class="element__bottom">
+          <img src="./images/5.jpg" alt="Balistoides conspicillum" class="element__image"/>
+          <div class="element__text-wrap">
             <h3 class="element__title">Balistoides conspicillum</h3>
-            <input type="button" value="" class="element__like link" />
+            <input type="button" class="element__like link" value="like"/>
           </div>
         </article>
         <article class="element">
-          <img src="./images/4.jpg" alt="Рыбка 4" class="element__image" />
-          <div class="element__bottom">
+          <img src="./images/4.jpg" alt="Acanthurus sohal" class="element__image"/>
+          <div class="element__text-wrap">
             <h3 class="element__title">Acanthurus sohal</h3>
-            <input type="button" value="" class="element__like link" />
+            <input type="button" class="element__like link" value="like"/>
           </div>
         </article>
         <article class="element">
-          <img src="./images/3.jpg" alt="Рыбка 5" class="element__image" />
-          <div class="element__bottom">
+          <img src="./images/3.jpg" alt="Carcharhinus obscurus" class="element__image"/>
+          <div class="element__text-wrap">
             <h3 class="element__title">Carcharhinus obscurus</h3>
-            <input type="button" value="" class="element__like link" />
+            <input type="button" class="element__like link" value="like"/>
           </div>
         </article>
         <article class="element">
-          <img src="./images/6.jpg" alt="Рыбка 6" class="element__image" />
-          <div class="element__bottom">
+          <img src="./images/6.jpg" alt="Chelmon rostratus" class="element__image"/>
+          <div class="element__text-wrap">
             <h3 class="element__title">Chelmon rostratus</h3>
-            <input type="button" value="" class="element__like link" />
+            <input type="button" class="element__like link" value="like"/>
           </div>
         </article>
       </section>
+      <!-- popup -->
       <div class="popup__overlay">
         <div class="popup">
           <form action="#" class="popup__form" name="editProfileForm">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input
-              class="popup__input popup_name-input"
-              type="text"
-              name="nameInput"
-              value="Куку"
-            />
-            <input
-              class="popup__input popup_job-input"
-              type="text"
-              name="jobInput"
-            />
-            <input class="popup__save-button" type="submit" value="Сохранить" />
-            <input class="popup__exit-button link" type="button" value="" />
+            <input class="popup__input popup_name-input" type="text" name="nameInput" value="Куку"/>
+            <input class="popup__input popup_job-input" type="text" name="jobInput"/>
+            <input class="popup__save-button" type="submit" value="Сохранить"/>
+            <input class="popup__exit-button link" type="button" value="exit"/>
           </form>
         </div>
       </div>
     </main>
     <footer class="footer">
-      <a href="#" class="footer__link link" target="_self"
-        >© 2020 Mesto Russia</a
-      >
+      <p class="footer__link">© 2020 Mesto Russia</p>
     </footer>
     <script src="./script/script.js"></script>
   </body>

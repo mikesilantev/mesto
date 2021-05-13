@@ -4,6 +4,7 @@
     height: 19px;
     background-image: url('../../../images/like.svg');
     cursor: pointer;
+    font-size: 0;
 }
 .element__like:focus{
     background-image: url('../../../images/like_active.svg');
