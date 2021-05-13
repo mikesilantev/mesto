@@ -6,6 +6,15 @@
     background-image: url('../../../images/like.svg');
     cursor: pointer;
     font-size: 0;
+    -webkit-transition: linear .3s;
+    -o-transition: linear .3s;
+    transition: linear .3s;
+}
+.element__like:hover{
+    opacity: .5;
+    -webkit-transition: linear .3s;
+    -o-transition: linear .3s;
+    transition: linear .3s;
 }
 .element__like:focus{
     background-image: url('../../../images/like_active.svg');
