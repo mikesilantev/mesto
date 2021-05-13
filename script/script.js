@@ -8,8 +8,8 @@ let profileJob = profileElement.querySelector('.profile__subtitle');
 let editButton = profileElement.querySelector('.profile__edit-button');
 //popup
 let exitButton = formElement.querySelector('.popup__exit-button'); 
-let nameInput = formElement.querySelector('.popup_name-input'); 
-let jobInput = formElement.querySelector('.popup_job-input'); 
+let nameInput = formElement.querySelector('.popup__input-name'); 
+let jobInput = formElement.querySelector('.popup__input-job'); 
 //open
 function popup(){
   overleyPopup.classList.add('popup_opened');
