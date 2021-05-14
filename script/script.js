@@ -7,20 +7,20 @@ let editButton = profileElement.querySelector('.profile__edit-button');
 let exitButton = overleyPopup.querySelector('.popup__exit-button'); 
 let nameInput = formElement.querySelector('.popup__input_text_name'); 
 let jobInput = formElement.querySelector('.popup__input_text_job'); 
-function popupOpen(){
+function openPopup(){
   overleyPopup.classList.add('popup_opened');
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileJob.textContent;
 }
-function popupClose(){
+function closePopup(){
   overleyPopup.classList.remove('popup_opened');
 }
 function formSubmitHandler (evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
-    popupClose();
+    closePopup();
 }
-editButton.addEventListener('click', popupOpen);
-exitButton.addEventListener('click', popupClose);
+editButton.addEventListener('click', openPopup);
+exitButton.addEventListener('click', closePopup);
 formElement.addEventListener('submit', formSubmitHandler);
