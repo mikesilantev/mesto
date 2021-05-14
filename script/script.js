@@ -8,12 +8,12 @@ let exitButton = overleyPopup.querySelector('.popup__exit-button');
 let nameInput = formElement.querySelector('.popup__input_text_name'); 
 let jobInput = formElement.querySelector('.popup__input_text_job'); 
 function openPopup(){
-  overleyPopup.classList.add('popup_opened');
+  overleyPopup.classList.add('overlay_popup-open');
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileJob.textContent;
 }
 function closePopup(){
-  overleyPopup.classList.remove('popup_opened');
+  overleyPopup.classList.remove('overlay_popup-open');
 }
 function formSubmitHandler (evt) {
     evt.preventDefault();

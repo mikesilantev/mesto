@@ -1,0 +1,5 @@
+.overlay_popup-open {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
