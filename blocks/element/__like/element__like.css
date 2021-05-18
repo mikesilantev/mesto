@@ -16,3 +16,9 @@
     -o-transition: linear .3s;
     transition: linear .3s;
 }
+.element__like:active, .element__like:focus{
+    outline: none;
+}
+.element__like::-moz-focus-inner {
+    border: 0;
+  }
