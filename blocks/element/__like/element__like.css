@@ -16,6 +16,3 @@
     -o-transition: linear .3s;
     transition: linear .3s;
 }
-.element__like:focus{
-    background-image: url('../../../images/like_active.svg');
-}
