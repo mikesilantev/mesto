@@ -6,7 +6,12 @@ let profileJob = profileElement.querySelector('.profile__subtitle');
 let editButton = profileElement.querySelector('.profile__edit-button');
 let exitButton = overleyPopup.querySelector('.popup__exit-button'); 
 let nameInput = formElement.querySelector('.popup__input_text_name'); 
-let jobInput = formElement.querySelector('.popup__input_text_job'); 
+let jobInput = formElement.querySelector('.popup__input_text_job');
+
+const addButton = profileElement.querySelector('.profile__add-button');
+console.log(addButton);
+
+const titleMeta = document.getElementsByTagName('TITLE')[0];
 //like
 for (let like of document.querySelectorAll('.element__like')){
   like.addEventListener('click', function(){
@@ -14,61 +19,29 @@ for (let like of document.querySelectorAll('.element__like')){
   })
 }
 
-// const cardElement = document.querySelector('.element');
-// const likeElement = cardElement.querySelector('.element__like');
-// function clickLike (){
-//   likeElement.addEventListener('click', function (evt) {
-//         const eventTarget = evt.target;
-//         console.log(eventTarget);
-//         evt.target.classList.toggle('element__like_active');
-//   });
-// }
-
-// cardElement.addEventListener('click', clickLike);
-
-
-// const cardElement = document.querySelector('.element');
-// console.log(cardElement);
-
-// const likeElement = cardElement.querySelector('.element__like');
-// console.log(likeElement);
-
-// likeElement.addEventListener('click', function (evt) {
-//       const eventTarget = evt.target;
-//       console.log(eventTarget);
-//       evt.target.classList.toggle('_active');
-// });
-
-
-
-
-
-// function clickLike() {
-//   const cardElement = document.querySelector('.element');
-//   console.log(cardElement);
-//   const likeElement = document.querySelector('.element__like');
-//   console.log(likeElement);
-//   likeElement.addEventListener('click', function (evt) {
-//     console.log(evt);
-//     // evt.target.classList.add('_active');
-//   });
-// }
-// clickLike();
-
 function openPopup(){
-  overleyPopup.classList.add('overlay_popup-open');
+  overleyPopup.classList.toggle('overlay_popup-open');
+}
+
+function inputValue(){
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileJob.textContent;
 }
+
 function closePopup(){
-  overleyPopup.classList.remove('overlay_popup-open');
+  overleyPopup.classList.toggle('overlay_popup-open');
 }
 function formSubmitHandler (evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
+    titleMeta.textContent = 'Место | ' + profileTitle.textContent;
     closePopup();
 }
-editButton.addEventListener('click', openPopup);
+
+editButton.addEventListener('click', function(){
+  openPopup();
+  inputValue();
+});
 exitButton.addEventListener('click', closePopup);
 formElement.addEventListener('submit', formSubmitHandler);
