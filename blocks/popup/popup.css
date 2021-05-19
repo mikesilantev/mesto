@@ -3,9 +3,16 @@
     max-width: 430px;
     border-radius: 10px;
     position: relative;
+    display: none;
 }
 @media screen and (max-width: 320px){
   .popup {
     max-width: 282px;
   }
+}
+.popup_open {
+  display: flex;
+}
+.popup_close {
+  display: none;
 }
