@@ -1,6 +1,6 @@
-* {
+/* * {
     border: 1px solid red;
-}
+} */
 .root {
     font-family: 'Inter', 'Arial', 'Helvetica', sans-serif;
     background-color: #000;
@@ -22,7 +22,9 @@
     justify-content: center;
     background-color: rgb(0, 0 , 0, .5);
     z-index: 9999;
-    transition: visibility 0s 0.25s, opacity 0.25s;
+    transition: all .5s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .popup__wrap {
@@ -30,7 +32,6 @@
     max-width: 430px;
     border-radius: 10px;
     position: relative;
-    /* display: none; */
 }
 
 .popup__exit-button {
@@ -117,4 +118,12 @@
     .popup__form {
         padding: 26px 22px 25px;
     }
+}
+.popup_open {
+    transition: all .5s ease-in-out;
+    visibility: visible;
+    opacity: 1;
+  }
+.popup_close {
+    display: none;
 }

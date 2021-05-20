@@ -17,16 +17,16 @@ editButton.addEventListener('click', () => openPopup(popupEdit));
 addButton.addEventListener('click', () => openPopup(popupAdd));
 
 
-const exitButtons = overleyPopup.querySelector('.popup__exit-button');
-const popups = document.querySelector('.popup');
-console.log(popups)
+// const exitButtons = overleyPopup.querySelector('.popup__exit-button');
+// const popups = document.querySelector('.popup');
+// console.log(popups)
 
-function closePopup(e) {
-  const parent = e.target.closest('.popup');
-  popups.classList.remove('popup_open');
-  console.log('error');
-}
-exitButtons.addEventListener('click', () => closePopup);
+// function closePopup(e) {
+//   const parent = e.target.closest('.popup');
+//   popups.classList.remove('popup_open');
+//   console.log('error');
+// }
+// exitButtons.addEventListener('click', () => closePopup);
 
 
 
