@@ -13,27 +13,41 @@ function openPopup(popupElement) {
   popupElement.classList.toggle('popup_open');
 }
 
+// Вставляем инфо в поля
+function inputValue(){
+  const nameInput = document.querySelector('.popup__input_text_name');
+  const jobInput = document.querySelector('.popup__input_text_job');
+  const profileTitle = profileElement.querySelector('.profile__title');
+  const profileJob = profileElement.querySelector('.profile__subtitle');
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileJob.textContent;
+}
+
 // вызов попапов по клику
-editButton.addEventListener('click', () => openPopup(popupEdit));
+editButton.addEventListener('click', () => {
+  openPopup(popupEdit);//функция попап с параметром popapEdit
+  inputValue();
+})
 addButton.addEventListener('click', () => openPopup(popupAdd));
 
 
 // Закрытие popup
 const closePopup = () => {
-  const popups = document.querySelectorAll('.popup');
-  if (!popups) return
-  popups.forEach(el => {
-  el.addEventListener('click', e => {
-    console.log(el);
-    console.log(e.target);
-    if (e.target.classList.contains('popup__exit-button')){
-      el.classList.remove('popup_open');
+  const popups = document.querySelectorAll('.popup');//выбираем все попапы
+  if (!popups) return //если попапа нет то ничего не делаем
+  popups.forEach(popup => { //разбиваем попоп на массив
+  popup.addEventListener('click', evt => { 
+    if (evt.target.classList.contains('popup__exit-button')){
+      popup.classList.remove('popup_open');
     }
   })
 })
 }
-
 closePopup();
+
+
+
+
 // const popups = document.querySelector('.popup__wrap');
 // console.log(popups.children[1]);
 
