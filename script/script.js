@@ -1,3 +1,5 @@
+const pageWrap = document.querySelector('body');
+
 const profileElement = document.querySelector('.profile');
 //Кнопки
 const editButton = profileElement.querySelector('.profile__edit-button');
@@ -31,6 +33,43 @@ editButton.addEventListener('click', () => {
 addButton.addEventListener('click', () => openPopup(popupAdd));
 
 
+
+
+//Попап для картинки
+// const elementImage = document.querySelectorAll('.element__image');
+// console.log(elementImage);
+
+function createPopup(el) {
+  const divElementPopup = document.createElement('div');
+  divElementPopup.classList.add('popup', 'popup_open');
+ 
+  const buttonCreate = document.createElement('button');
+  buttonCreate.classList.add('popup__exit-button', 'link');
+
+  const divElementWrap = document.createElement('div');
+  divElementWrap.classList.add('popup__wrap');
+
+  const imgCreate = document.createElement('img'); // клонируем img
+
+  console.log(imgCreate);
+  imgCreate.classList.add('element__image_zoom')
+  imgCreate.setAttribute('src', el);
+
+  const imgTitleCreate = document.createElement('h3');
+  console.log(imgTitleCreate);
+  divElementWrap.append(imgCreate, imgTitleCreate,buttonCreate);
+
+  divElementPopup.append(divElementWrap);
+  pageWrap.append(divElementPopup);
+}
+
+// const openCard = () => {
+//   const elementImages = document.querySelectorAll('.element');
+//   console.log(elementImages);
+//   elementImages.forEach(elementImage);
+// }
+// openCard();
+
 // Закрытие popup
 const closePopup = () => {
   const popups = document.querySelectorAll('.popup');//выбираем все попапы
@@ -44,6 +83,27 @@ const closePopup = () => {
 })
 }
 closePopup();
+
+
+const openCard = () => {
+  const elementImages = document.querySelectorAll('.element__image');
+  elementImages.forEach(elementImage => {
+    elementImage.addEventListener('click', evt =>{
+      const  elementImageSrc = elementImage.getAttribute('src');
+      console.log(elementImageSrc);
+
+
+      // elementImage.classList.add('');
+
+      createPopup(elementImageSrc);
+      closePopup();
+    })
+  })
+}
+openCard();
+
+// при клике на elementImage добавляем
+// засовываем ссыль в теги попапа
 
 
 

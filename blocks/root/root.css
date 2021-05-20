@@ -28,9 +28,6 @@
 }
 
 .popup__wrap {
-    background-color: #fff;
-    max-width: 430px;
-    border-radius: 10px;
     position: relative;
 }
 
@@ -109,6 +106,9 @@
     outline: 3px solid rgb(67, 189, 246);
 }
 .popup__form {
+    background-color: #fff;
+    max-width: 430px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     padding: 34px 36px 37px;
@@ -126,4 +126,10 @@
   }
 .popup_close {
     display: none;
+}
+.element__image_zoom {
+    max-width: 75vh;
+    max-height: 75vh;
+    display: block;
+    border:10px solid red;
 }
