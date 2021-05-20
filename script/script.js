@@ -36,6 +36,7 @@ initialCards.forEach(item => {
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
   cardElement.querySelector('.element__image').src = item.link;
   cardElement.querySelector('.element__title').textContent = item.name;
+  cardElement.querySelector('.element__image').alt = item.name;
   card.append(cardElement);
   
   
