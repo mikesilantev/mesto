@@ -33,6 +33,29 @@ editButton.addEventListener('click', () => {
 addButton.addEventListener('click', () => openPopup(popupAdd));
 
 
+//Удаление созданных попаов с картинками
+function deletePopup() {
+  const delPopup = document.querySelector('.popup_img');
+  console.log(delPopup);
+  delPopup.remove();
+}
+
+
+
+// Закрытие popup рабочее
+const closePopup = () => {
+  const popups = document.querySelectorAll('.popup');//выбираем все попапы
+  if (!popups) return //если попапа нет то ничего не делаем
+  popups.forEach(popup => { //разбиваем попоп на массив
+  popup.addEventListener('click', evt => { 
+    if (evt.target.classList.contains('popup__exit-button')){
+      popup.classList.remove('popup_open');
+    } 
+    deletePopup();
+  })
+})
+}
+closePopup();
 
 
 //Попап для картинки
@@ -41,7 +64,7 @@ addButton.addEventListener('click', () => openPopup(popupAdd));
 
 function createPopup(el) {
   const divElementPopup = document.createElement('div');
-  divElementPopup.classList.add('popup', 'popup_open');
+  divElementPopup.classList.add('popup', 'popup_open', 'popup_img');
  
   const buttonCreate = document.createElement('button');
   buttonCreate.classList.add('popup__exit-button', 'link');
@@ -63,6 +86,7 @@ function createPopup(el) {
   pageWrap.append(divElementPopup);
 }
 
+
 // const openCard = () => {
 //   const elementImages = document.querySelectorAll('.element');
 //   console.log(elementImages);
@@ -71,25 +95,16 @@ function createPopup(el) {
 // openCard();
 
 // Закрытие popup
-const closePopup = () => {
-  const popups = document.querySelectorAll('.popup');//выбираем все попапы
-  if (!popups) return //если попапа нет то ничего не делаем
-  popups.forEach(popup => { //разбиваем попоп на массив
-  popup.addEventListener('click', evt => { 
-    if (evt.target.classList.contains('popup__exit-button')){
-      popup.classList.remove('popup_open');
-    }
-  })
-})
-}
-closePopup();
+
 
 
 const openCard = () => {
   const elementImages = document.querySelectorAll('.element__image');
+  const elementImageTitle = document.querySelectorAll('.element__image');
   elementImages.forEach(elementImage => {
     elementImage.addEventListener('click', evt =>{
       const  elementImageSrc = elementImage.getAttribute('src');
+      
       console.log(elementImageSrc);
 
 
@@ -97,6 +112,7 @@ const openCard = () => {
 
       createPopup(elementImageSrc);
       closePopup();
+
     })
   })
 }
@@ -306,3 +322,17 @@ openCard();
 //   const popupAdd = document.getElementById('popupAdd');
 //   openPopup(popupAdd);
 // })
+
+// Закрытие popup рабочее
+// const closePopup = () => {
+//   const popups = document.querySelectorAll('.popup');//выбираем все попапы
+//   if (!popups) return //если попапа нет то ничего не делаем
+//   popups.forEach(popup => { //разбиваем попоп на массив
+//   popup.addEventListener('click', evt => { 
+//     if (evt.target.classList.contains('popup__exit-button')){
+//       popup.classList.remove('popup_open');
+//     } 
+//   })
+// })
+// }
+// closePopup();

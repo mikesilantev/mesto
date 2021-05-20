@@ -5,6 +5,7 @@
        object-fit: cover;
     border-radius: 10px 10px 0 0;
     display: block;
+    cursor: pointer;
 }
 @media screen and (max-width: 768px){
     .element__image {

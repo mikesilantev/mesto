@@ -130,6 +130,6 @@
 .element__image_zoom {
     max-width: 75vh;
     max-height: 75vh;
-    display: block;
-    border:10px solid red;
+    /* display: block; */
+    transition: all .5s ease-in-out;
 }
