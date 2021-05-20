@@ -1,3 +1,63 @@
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+
+const cardTemplate = document.querySelector('#card-template').content;//забираем template с html
+const card = document.querySelector('.elements');
+// клонируем содержимое тега template
+
+// document.addEventListener('DOMContentLoaded', cardLoadStart(1, 2));
+// console.log(initialCards);
+initialCards.forEach(item => {
+  console.log(item.link + ',' + item.name);
+  const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
+  cardElement.querySelector('.element__image').src = item.link;
+  cardElement.querySelector('.element__title').textContent = item.name;
+  card.append(cardElement);
+  
+  
+
+  return
+})
+
+
+// document.addEventListener('DOMContentLoaded', 
+//функция загрузки карточек на страницу из js
+// function cardLoadStart(cardNameValue, cardLinkValue){
+//   cardElement.querySelector('.element__image').src = cardNameValue;
+//   console.log(cardElement);
+//   cardElement.querySelector('.element__title').textContent = cardLinkValue;
+//   console.log(cardElement);
+//   card.append(cardElement);
+// }
+
+
+
+
+
 const pageWrap = document.querySelector('body');
 
 const profileElement = document.querySelector('.profile');
@@ -58,13 +118,12 @@ const closePopup = () => {
 closePopup();
 
 
-//Попап для картинки
-// const elementImage = document.querySelectorAll('.element__image');
-// console.log(elementImage);
-
+//Сборка попапа для картинки
 function createPopup(el) {
   const divElementPopup = document.createElement('div');
   divElementPopup.classList.add('popup', 'popup_open', 'popup_img');
+  // divElementPopup.classList.add('popup', 'popup_open', 'popup_img');
+  // divElementPopup.setAttribute('id', 'popupImg');
  
   const buttonCreate = document.createElement('button');
   buttonCreate.classList.add('popup__exit-button', 'link');
