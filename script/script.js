@@ -38,10 +38,6 @@ initialCards.forEach(item => {
   cardElement.querySelector('.element__title').textContent = item.name;
   cardElement.querySelector('.element__image').alt = item.name;
   card.append(cardElement);
-  
-  
-
-  return
 })
 
 
