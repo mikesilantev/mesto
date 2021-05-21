@@ -131,5 +131,6 @@
     max-width: 75vh;
     max-height: 75vh;
     /* display: block; */
+    opacity: 1;
     transition: all .5s ease-in-out;
 }

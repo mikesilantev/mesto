@@ -36,7 +36,7 @@
             <h2 class="popup__title">Редактировать профиль</h2>
             <input class="popup__input popup__input_text_name" type="text" name="nameInput"/>
             <input class="popup__input popup__input_text_job" type="text" name="jobInput"/>
-            <button class="popup__save-button" type="submit" value="Сохранить">Сохранить</button>
+            <button class="popup__save-button" id="saveProfile" type="submit" value="Сохранить">Сохранить</button>
           </form>
           <button class="popup__exit-button link" type="button" value="exit"></button>
       </div>
@@ -46,9 +46,9 @@
       <div class="popup__wrap">
         <form action="#" class="popup__form" name="addPhotoForm">
           <h2 class="popup__title">Новое место</h2>
-          <input class="popup__input popup__input_text_loc-name" type="text" name="locNameInput"/>
+          <input class="popup__input popup__input_text_loc-name" type="text" name="locNameInput" value=""/>
           <input class="popup__input popup__input_text_url" type="text" name="urlInput"/>
-          <button class="popup__save-button" type="submit" value="Сохранить">Сохранить</button>
+          <button class="popup__save-button popup__save-button_add-card" id="saveCard" type="submit" value="Сохранить">Сохранить</button>
         </form>
         <button class="popup__exit-button link" type="button" value="exit"></button>
       </div>
@@ -67,64 +67,15 @@
           <button type="button" class="element__like" value="like"></button>
         </div>
       </article>
-    </template>  
+    </template>
+    <template id="popup-template">
+      <div class="popup__wrap">
+        <button class="popup__exit-button link" type="button" value="exit"></button>
+      </div>
+    </template>
+
 
 
     <script src="./script/script.js"></script>
   </body>
 </html>
-<!-- Тело popup -->
-<!-- <div class="popup">
-  <div class="popup__wrap">
-
-  </div>
-  <button class="popup__exit-button link" type="button" value="exit"></button>
-</div> -->
-<!-- <article class="element">
-  <button type="reset" class="element__trash link" value="trash"></button>
-  <img src="./images/1.jpg" alt="Zebrasoma flavescenes" class="element__image"/>
-  <div class="element__text-wrap">
-    <h3 class="element__title">Zebrasoma flavescenes</h3>
-    <button type="button" class="element__like" value="like"></button>
-  </div>
-</article>
-<article class="element">
-  <button type="reset" class="element__trash link" value="trash"></button>
-  <img src="./images/2.jpg" alt="Paracanthurus hepatus" class="element__image"/>
-  <div class="element__text-wrap">
-    <h3 class="element__title">Paracanthurus hepatus</h3>
-    <button type="button" class="element__like" value="like"></button>
-  </div>
-</article>
-<article class="element">
-  <button type="reset" class="element__trash link" value="trash"></button>
-  <img src="./images/5.jpg" alt="Balistoides conspicillum" class="element__image"/>
-  <div class="element__text-wrap">
-    <h3 class="element__title">Balistoides conspicillum</h3>
-    <button type="button" class="element__like" value="like"></button>
-  </div>
-</article>
-<article class="element">
-  <button type="reset" class="element__trash link" value="trash"></button>
-  <img src="./images/4.jpg" alt="Acanthurus sohal" class="element__image"/>
-  <div class="element__text-wrap">
-    <h3 class="element__title">Acanthurus sohal</h3>
-    <button type="button" class="element__like" value="like"></button>
-  </div>
-</article>
-<article class="element">
-  <button type="reset" class="element__trash link" value="trash"></button>
-  <img src="./images/3.jpg" alt="Carcharhinus obscurus" class="element__image"/>
-  <div class="element__text-wrap">
-    <h3 class="element__title">Carcharhinus obscurus</h3>
-    <button type="button" class="element__like" value="like"></button>
-  </div>
-</article>
-<article class="element">
-  <button type="reset" class="element__trash link" value="trash"></button>
-  <img src="./images/6.jpg" alt="Chelmon rostratus" class="element__image"/>
-  <div class="element__text-wrap">
-    <h3 class="element__title">Chelmonp rostratus</h3>
-    <button type="button" class="element__like" value="like"></button>
-  </div>
-</article> -->
