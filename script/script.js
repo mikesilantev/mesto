@@ -27,17 +27,38 @@ const initialCards = [
 
 const cardTemplate = document.querySelector('#card-template').content;//забираем template с html
 const card = document.querySelector('.elements');
+initialCards.forEach(item => {
+  const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
+  cardElement.querySelector('.element__image').src = item.link;
+  cardElement.querySelector('.element__title').textContent = item.name;
+  cardElement.querySelector('.element__image').alt = item.name;
+  card.append(cardElement);
+})
 // клонируем содержимое тега template
+function buildCard() {
+  const itemCard = initialCards[0];
+  console.log(initialCards);
+  const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
+  cardElement.querySelector('.element__image').src = itemCard.link;
+  cardElement.querySelector('.element__title').textContent = itemCard.name;
+  cardElement.querySelector('.element__image').alt = itemCard.name;
+  card.append(cardElement);
+}
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+  // // клонируем содержимое тега template
+  // initialCards.forEach(item => {
+  //   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
+  //   cardElement.querySelector('.element__image').src = item.link;
+  //   cardElement.querySelector('.element__title').textContent = item.name;
+  //   cardElement.querySelector('.element__image').alt = item.name;
+  //   card.append(cardElement);
+  // })
+////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
 
-// document.addEventListener('DOMContentLoaded', cardLoadStart(1, 2));
-// console.log(initialCards);
-  initialCards.forEach(item => {
-    const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
-    cardElement.querySelector('.element__image').src = item.link;
-    cardElement.querySelector('.element__title').textContent = item.name;
-    cardElement.querySelector('.element__image').alt = item.name;
-    card.append(cardElement);
-  })
 
 // Загрузка карточек на сайт
 const pageWrap = document.querySelector('body');
@@ -46,10 +67,8 @@ const profileElement = document.querySelector('.profile');
 const editButton = profileElement.querySelector('.profile__edit-button');
 const addButton = profileElement.querySelector('.profile__add-button');
 //Попапы
-
 const popupEdit = document.getElementById('popupEdit');
 const popupAdd = document.getElementById('popupAdd');
-
 // Функция открытитя попапов
 function openPopup(popupElement) {
   popupElement.classList.toggle('popup_open');
@@ -67,22 +86,15 @@ function inputValue(){
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileJob.textContent;
 }
-
 //Сохранение title
 const saveProfileButton = document.getElementById('saveProfile');
 function formSubmitHandler (evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
-    const arr = [{name: nameInput.value, url: jobInput.value}];
-    // titleMeta.textContent = 'Место | ' + profileTitle.textContent;
-    console.log(arr);
-    closePopup();
 }
 //Сохраняем карточку
 const saveCardButton = document.getElementById('saveCard');
-console.log(initialCards);
-
 const locInput = document.querySelector('.popup__input_text_loc-name');
 const urlInput = document.querySelector('.popup__input_text_url');
 function addSubmitHandler(evt){
@@ -90,13 +102,15 @@ function addSubmitHandler(evt){
   evt.preventDefault();
   initialCards.unshift({name: locInput.value, link: urlInput.value});
   console.log(initialCards);
+  console.log('Функция addSubmitHandler');
+  console.log(initialCards[0]);
+  buildCard(initialCards);
 }
 ////////////////////////////////////////////////////////////////////
+// Добавляем новую карточку
 ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
-
-
-
+////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
 // вызов попапов по клику
 editButton.addEventListener('click', () => {
@@ -113,13 +127,11 @@ function deletePopup() {
 }
 ////////////////////////////////////////////////////////////////////
 // Закрытие popup рабочее
-
 const closePopup = () => {
-  const removePopups = (evt) => {
-    evt.classList.remove('popup_open');
+  const removePopups = (removeItem) => {
+    removeItem.classList.remove('popup_open');
   }
   const popups = document.querySelectorAll('.popup');//выбираем все попапы
-  // const removePopup = popup.classList.remove('popup_open');
   if (!popups) return //если попапа нет то ничего не делаем
   popups.forEach(popup => { //разбиваем попоп на массив
   popup.addEventListener('click', evt => { 
@@ -140,10 +152,10 @@ const closePopup = () => {
     if ((evt.target.classList.contains('popup__exit-button')) 
       && (popup.classList.contains('popup_img')))
       {
-      // popup.classList.remove('popup_open');
       removePopups(popup);
-      console.log('удаляем попап из DOM');
+      console.log('прячем попап');
       deletePopup();
+      console.log('удаляем попап из DOM');
     }
   })
 })
@@ -152,8 +164,9 @@ closePopup();
 ////////////////////////////////////////////////////////////////////
 
 
-
-//Сборка попапа для картинки
+////////////////////////////////////////////////////////////////////
+//Сборка попапа для картинки////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
 function createPopup(el) {
   const divElementPopup = document.createElement('div');
   divElementPopup.classList.add('popup', 'popup_open', 'popup_img');
@@ -170,41 +183,19 @@ function createPopup(el) {
   pageWrap.append(divElementPopup);
 }
 
-
-// const openCard = () => {
-//   const elementImages = document.querySelectorAll('.element');
-//   console.log(elementImages);
-//   elementImages.forEach(elementImage);
-// }
-// openCard();
-
-// Закрытие popup
-
-
-
 const openCard = () => {
   const elementImages = document.querySelectorAll('.element__image');
   const elementImageTitle = document.querySelectorAll('.element__image');
   elementImages.forEach(elementImage => {
     elementImage.addEventListener('click', evt =>{
       const  elementImageSrc = elementImage.getAttribute('src');
-      
       console.log(elementImageSrc);
-
-
-      // elementImage.classList.add('');
-
       createPopup(elementImageSrc);
       closePopup();
-
     })
   })
 }
 openCard();
-
-
-
-
 
 //like
 for (let like of document.querySelectorAll('.element__like')){
