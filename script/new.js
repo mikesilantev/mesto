@@ -39,8 +39,8 @@ const card = document.querySelector('.elements');
 function createCardDOM(item){
   // Клонируем темплейт
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
-  const trashButton = cardElement.querySelector('.element__trash');
   const newImg = cardElement.querySelector('.element__image');
+  const trashButton = cardElement.querySelector('.element__trash');
   const newLike = cardElement.querySelector('.element__like');
   //Забираем инфо из базы
   //подставляем в карточку
@@ -51,14 +51,13 @@ function createCardDOM(item){
   //////////////////////////////////////////////////////////////////////
   newImg.addEventListener('click', function(){
     console.log('Я картинка');
-    createCardPopup();
+    // createCardPopup();
+    openCard();
   })
-
   //Вешаем на корзину событие
   trashButton.addEventListener('click', function(){
     console.log('Я корзина')
   })
-
   newLike.addEventListener('click', function(){
     console.log('Я лайк')
   })
@@ -66,7 +65,7 @@ function createCardDOM(item){
   card.append(cardElement);
 }
 //////////////////////////////////////////////////////////////////////
-//Создание карточки///////////////////////////////////////////////////
+//Функция Создания карточек при загрузки//////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function loadStartCard(array){
   array.forEach(item => {
@@ -96,7 +95,31 @@ function deleteCard(i){
   i.parentNode.remove();
   console.log('Карточка удалена из DOM');
 }
+////////////////////////////////////////////////////////////////////
+//Открытие попапа для картинки//////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+function openCard(){
+  const elementImages = document.querySelectorAll('.element__image');
+  elementImages.forEach(i => {
+    i.addEventListener('click', function () {
+      console.log(i);
+      
+    })
+  })}
 
+// const openCard = () =>{
+//   const elementImages = document.querySelectorAll('.element__image');
+//   const elementImageTitle = document.querySelectorAll('.element__image');
+//   elementImages.forEach(elementImage => {
+//     elementImage.addEventListener('click', evt =>{
+//       const  elementImageSrc = elementImage.getAttribute('src');
+//       console.log(elementImageSrc);
+//       createPopup(elementImageSrc);
+//       closePopup();
+//     })
+//   })
+// }
+// openCard();
 
 
 //Вешаем событие на новую карточк
@@ -179,14 +202,14 @@ function createPopup(el) {
 // }
 // openCard();
 
-function createCardPopup(){
-  const elementImage = document.querySelectorAll('.element__image');
-  const elementImageTitle = document.querySelectorAll('.element__image');
-      const  elementImageSrc = elementImage.getAttribute('src');
-      console.log(elementImageSrc);
-      createPopup(elementImageSrc);
-      closePopup();
-    }
+// function createCardPopup(){
+//   const elementImage = document.querySelectorAll('.element__image');
+//   const elementImageTitle = document.querySelectorAll('.element__image');
+//       const  elementImageSrc = elementImage.getAttribute('src');
+//       console.log(elementImageSrc);
+//       createPopup(elementImageSrc);
+//       closePopup();
+//     }
 
 
 
