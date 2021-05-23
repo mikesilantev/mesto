@@ -88,7 +88,9 @@ function inputValue(){
 }
 //Сохранение title
 const saveProfileButton = document.getElementById('saveProfile');
-function formSubmitHandler (evt) {
+function formSubmitHandler(evt) {
+  const profileForm = document.getElementsById('editProfileForm');
+  console.log(profileForm);
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileJob.textContent = jobInput.value;
@@ -127,40 +129,40 @@ function deletePopup() {
 }
 ////////////////////////////////////////////////////////////////////
 // Закрытие popup рабочее
-const closePopup = () => {
-  const removePopups = (removeItem) => {
-    removeItem.classList.remove('popup_open');
-  }
-  const popups = document.querySelectorAll('.popup');//выбираем все попапы
-  if (!popups) return //если попапа нет то ничего не делаем
-  popups.forEach(popup => { //разбиваем попоп на массив
-  popup.addEventListener('click', evt => { 
-    if (evt.target.classList.contains('popup__exit-button')){
-      popup.classList.remove('popup_open');
-      console.log('сработал крестик');
-    } 
-    if (evt.target === saveProfileButton){
-      popup.classList.remove('popup_open');
-      formSubmitHandler(evt);
-      console.log('сохраняем профиль');
-    } 
-    if (evt.target === saveCardButton){
-      popup.classList.remove('popup_open');
-      addSubmitHandler(evt);
-      console.log('Сохраняем карточку');
-    }
-    if ((evt.target.classList.contains('popup__exit-button')) 
-      && (popup.classList.contains('popup_img')))
-      {
-      removePopups(popup);
-      console.log('прячем попап');
-      deletePopup();
-      console.log('удаляем попап из DOM');
-    }
-  })
-})
-}
-closePopup();
+// const closePopup = () => {
+//   const removePopups = (removeItem) => {
+//     removeItem.classList.remove('popup_open');
+//   }
+//   const popups = document.querySelectorAll('.popup');//выбираем все попапы
+//   if (!popups) return //если попапа нет то ничего не делаем
+//   popups.forEach(popup => { //разбиваем попоп на массив
+//   popup.addEventListener('click', evt => { 
+//     if (evt.target.classList.contains('popup__exit-button')){
+//       popup.classList.remove('popup_open');
+//       console.log('сработал крестик');
+//     } 
+//     if (evt.target === saveProfileButton){
+//       popup.classList.remove('popup_open');
+//       formSubmitHandler(evt);
+//       console.log('сохраняем профиль');
+//     } 
+//     if (evt.target === saveCardButton){
+//       popup.classList.remove('popup_open');
+//       addSubmitHandler(evt);
+//       console.log('Сохраняем карточку');
+//     }
+//     if ((evt.target.classList.contains('popup__exit-button')) 
+//       && (popup.classList.contains('popup_img')))
+//       {
+//       removePopups(popup);
+//       console.log('прячем попап');
+//       deletePopup();
+//       console.log('удаляем попап из DOM');
+//     }
+//   })
+// })
+// }
+// closePopup();
 ////////////////////////////////////////////////////////////////////
 
 
