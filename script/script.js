@@ -169,35 +169,6 @@ function deletePopup() {
 ////////////////////////////////////////////////////////////////////
 //Сборка попапа для картинки////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
-function createPopup(el) {
-  const divElementPopup = document.createElement('div');
-  divElementPopup.classList.add('popup', 'popup_open', 'popup_img');
-  const buttonCreate = document.createElement('button');
-  buttonCreate.classList.add('popup__exit-button', 'link');
-  const divElementWrap = document.createElement('div');
-  divElementWrap.classList.add('popup__wrap');
-  const imgCreate = document.createElement('img'); // клонируем img
-  imgCreate.classList.add('element__image_zoom')
-  imgCreate.setAttribute('src', el);
-  const imgTitleCreate = document.createElement('h3');
-  divElementWrap.append(imgCreate, imgTitleCreate,buttonCreate);
-  divElementPopup.append(divElementWrap);
-  pageWrap.append(divElementPopup);
-}
-
-const openCard = () => {
-  const elementImages = document.querySelectorAll('.element__image');
-  const elementImageTitle = document.querySelectorAll('.element__image');
-  elementImages.forEach(elementImage => {
-    elementImage.addEventListener('click', evt =>{
-      const  elementImageSrc = elementImage.getAttribute('src');
-      console.log(elementImageSrc);
-      createPopup(elementImageSrc);
-      closePopup();
-    })
-  })
-}
-openCard();
 
 //like
 for (let like of document.querySelectorAll('.element__like')){

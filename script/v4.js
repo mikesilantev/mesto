@@ -1,30 +1,42 @@
 // Константы
-// Кнопка редактирования
+//Кнопки профиля
 const buttonEditProfile = document.querySelector('.profile__edit-button');
-console.log(buttonEditProfile.value);
+const buttonAddCard = document.querySelector('.profile__add-button');
+//Попапы
+const popupEdit = document.getElementById('popupEdit');
+const popupAdd = document.getElementById('popupAdd');
+// Кнопка редактирования
+
 //События
-buttonEditProfile.addEventListener('click', openPopups)
+buttonEditProfile.addEventListener('click', openPopups(buttonEditProfile));
+buttonAddCard.addEventListener('click', openPopups(buttonAddCard));
 //Функции
 //Открытие попапа
-function openPopups(event) {
-  event.addEventListener('click', function () {
-    console.log(event);
-    console.log(event.lastElementChild);
-    event.lastElementChild.classList.add('popup_open');
-    event.stopPropagation;
-    console.log('Удалили Listener');
+function openPopups(item) {
+  item.addEventListener('click', function (evt, xxx) {
+    // console.log(item);
+    // console.log(item.lastElementChild);
+    if (evt.target.classList.contains('element__image')){
+      item.lastElementChild.classList.add('popup_open');
+      item.stopPropagation;
+    }
+    if (evt.target === buttonEditProfile){
+      console.log('Повесили листенер')
+      popupEdit.classList.add('popup_open');
+    }
+    if (evt.target === buttonAddCard){
+      console.log('Повесили листенер')
+      popupAdd.classList.add('popup_open');
+    }
+    
   })
-  // let e = event.target
-  // event.target.classList.toggle('popup_open');
- 
 }
-  // if (evt.target.classList.contains('popup__exit-button')){
-  //     popup.classList.remove('popup_open');
-  //     console.log('сработал крестик');
-  //   } 
 
 
 
+  //////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////
   const initialCards = [
     {
       name: 'Архыз',
@@ -51,15 +63,15 @@ function openPopups(event) {
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     },
   ];
-  console.log('Выводим стартовый массив')
-  console.log('!!!')
-  console.log(initialCards);
+  // console.log('Выводим стартовый массив')
+  // console.log('!!!')
+  // console.log(initialCards);
   //////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////
   //забираем template с html
   const cardTemplate = document.querySelector('#card-template').content;
-  console.log(cardTemplate);
+  // console.log(cardTemplate);
   //Секция элементс для вставки карточек
   const card = document.querySelector('.elements');
   //////////////////////////////////////////////////////////////////////
@@ -68,16 +80,16 @@ function openPopups(event) {
   function createCardDOM(item){
     // Клонируем темплейт
     const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
-    console.log(cardElement);
+    // console.log(cardElement);
     // Переменные для лайка картинки и корзины
     const newImg = cardElement.querySelector('.element__image');
     const trashButton = cardElement.querySelector('.element__trash');
     const newLike = cardElement.querySelector('.element__like');
     const newImgZoom = cardElement.querySelector('.popup__image_zoom');
 
-    console.log(newImgZoom);
+    // console.log(newImgZoom);
     const subtitleImgZoom = cardElement.querySelector('.popup__subtitle');
-    console.log(subtitleImgZoom);
+    // console.log(subtitleImgZoom);
     //Забираем инфо из базы
     //подставляем в карточку
     //////////////////////////////////////////////////////////////////////
