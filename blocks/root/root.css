@@ -127,10 +127,15 @@
 .popup_close {
     display: none;
 }
-.element__image_zoom {
+.popup__image_zoom {
     max-width: 75vh;
     max-height: 75vh;
-    /* display: block; */
+    display: block;
     opacity: 1;
     transition: all .5s ease-in-out;
+}
+.popup__subtitle {
+    margin: 10px 0 0;
+    font-weight: normal;
+    font-size: 12px;
 }
