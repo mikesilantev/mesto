@@ -62,6 +62,18 @@ function deleteCard(item) {
   //////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////
+function setLike(item) {
+  const buttonLike = item.children[2].children[1]
+  item.addEventListener('click', function (evt) {
+    if (evt.target.classList.contains('element__like')){
+      buttonLike.classList.toggle('element__like_active')
+    }
+  })
+  buttonLike.stopPropagation;
+}
+  //////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////
   const initialCards = [
     {
       name: 'Архыз',
@@ -137,6 +149,7 @@ function deleteCard(item) {
     })
     newLike.addEventListener('click', function(){
       console.log('Я лайк')
+      setLike(cardElement);
     })
     //Выврдим в карточку
     card.append(cardElement);
