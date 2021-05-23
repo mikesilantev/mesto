@@ -18,18 +18,35 @@ function openPopups(item) {
     // console.log(item.lastElementChild);
     if (evt.target.classList.contains('element__image')){
       item.lastElementChild.classList.add('popup_open');
-      item.stopPropagation;
+      // item.stopPropagation;
+      
     }
     if (evt.target === buttonEditProfile){
       console.log('Повесили листенер')
       popupEdit.classList.add('popup_open');
+      closePopups(popupEdit);
+      console.log(popupEdit)
+      // item.stopPropagation;
     }
     if (evt.target === buttonAddCard){
       console.log('Повесили листенер')
       popupAdd.classList.add('popup_open');
+      closePopups(popupAdd);
     }
-    
   })
+  item.stopPropagation;
+}
+  //////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////
+function closePopups(item) {
+  item.addEventListener('click', function (evt) {
+    if (evt.target.classList.contains('popup__exit-button')){
+      item.lastElementChild.classList.remove('popup_open');
+    }
+    item.classList.remove('popup_open');
+  })
+  item.stopPropagation;
 }
 
 
@@ -89,6 +106,9 @@ function openPopups(item) {
 
     // console.log(newImgZoom);
     const subtitleImgZoom = cardElement.querySelector('.popup__subtitle');
+    const newExitButton = cardElement.querySelector('.popup__exit-button');
+    newExitButton.addEventListener('click', closePopups(cardElement));
+    console.log(newExitButton);
     // console.log(subtitleImgZoom);
     //Забираем инфо из базы
     //подставляем в карточку
