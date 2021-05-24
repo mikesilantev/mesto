@@ -3,6 +3,7 @@ const buttonEdit = document.querySelector('.profile__edit-button');
 buttonEdit.addEventListener('click', function(){
   console.log('Кликнули по кнопке редактирования')
   openModal(modalEdit);
+  pickProfileOnfo();
 })
 //Кнопка добавления новых карточек
 const buttonAdd = document.querySelector('.profile__add-button');
@@ -28,6 +29,32 @@ function closeModal(modal){
   })
   console.log('Всегда выполняем...')
 }
+
+//Забираем данные из профиля
+// Переменные
+const profileElement = document.querySelector('.profile');
+const nameInput = document.querySelector('.popup__input_text_name');
+const jobInput = document.querySelector('.popup__input_text_job');
+const profileTitle = profileElement.querySelector('.profile__title');
+const profileJob = profileElement.querySelector('.profile__subtitle');
+// Вставка инфы из профиля в попап
+function pickProfileOnfo() {
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileJob.textContent;
+}
+
+
+// //Сохранение title
+// const saveProfileButton = document.getElementById('saveProfile');
+// function formSubmitHandler(evt) {
+//   const profileForm = document.getElementsById('editProfileForm');
+//   console.log
+//     evt.preventDefault();
+//     profileTitle.textContent = nameInput.value;
+//     profileJob.textContent = jobInput.value;
+// }
+
+
 
 
 
