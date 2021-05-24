@@ -22,7 +22,7 @@
     justify-content: center;
     background-color: rgb(0, 0 , 0, .5);
     z-index: 9999;
-    transition: all .5s ease-in-out;
+    transition: all .2s ease-in-out;
     visibility: hidden;
     opacity: 0;
 }
@@ -120,7 +120,7 @@
     }
 }
 .popup_open {
-    transition: all .5s ease-in-out;
+    transition: all .2s ease-in-out;
     visibility: visible;
     opacity: 1;
   }
@@ -132,7 +132,7 @@
     max-height: 75vh;
     display: block;
     opacity: 1;
-    transition: all .5s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 .popup__subtitle {
     margin: 10px 0 0;

@@ -6,7 +6,7 @@ buttonEdit.addEventListener('click', function(){
 })
 //Кнопка добавления новых карточек
 const buttonAdd = document.querySelector('.profile__add-button');
-buttonAdd.addEventListener('click', function(){
+buttonAdd.addEventListener('click', () => {
   console.log('Кликнули по кнопке добавления картинок')
   openModal(modalAdd);
 })
@@ -16,13 +16,17 @@ const modalAdd = document.querySelector('.popup_type_add');
 
 
 function openModal(modal){
-  modal.classList.toggle('popup_open')
+  modal.classList.toggle('popup_open');
+  console.log('Открываем')
+  console.log(modal)
+  closeModal(modal)
 }
-function closeModal(evt){
-  if (evt.target.classList.contains('.popup__exit-button')){
-    console.log('Я кнопка')
-  }
-  modal.classList.toggle('popup_open')
+function closeModal(modal){
+  modal.querySelector('.popup__exit-button').addEventListener('click', function(){
+    modal.classList.remove('popup_open');
+    console.log('Закрываем...')
+  })
+  console.log('Всегда выполняем...')
 }
 
 
@@ -105,18 +109,18 @@ const initialCards = [
     })
     // Закрываем
     cardElement.querySelector('.popup__exit-button').addEventListener('click', function(evt){
-      evt.target.parentElement.classList.toggle('popup_open');
-      console.log(evt.target)
-      evt.target.closest(".popup_open").remove();
+      evt.target.closest('.popup_type_image').classList.toggle('popup_open');
     })
     //Удаление
     cardElement.querySelector('.element__trash').addEventListener('click', function(evt){
       evt.target.closest(".element").remove();
     })
+    //Like
     const cardElementLike = cardElement.querySelector('.element__like');
-    cardElementLike.addEventListener('click', function(evt){
+    cardElementLike.addEventListener('click', function(){
       cardElementLike.classList.toggle('element__like_active')
     })
+    //Добавление в карточку
     card.append(cardElement);
   }
   //////////////////////////////////////////////////////////////////////
