@@ -1,45 +1,72 @@
-// const cardImgElement = document.querySelector('.element__image').addEventListener('click', function(evt){
-//   evt.target.classList.toggle('popup_open');
-// })
+const buttonEdit = document.querySelector('.profile__edit-button');
+buttonEdit.addEventListener('click', function(){
+  console.log('Кликнули по кнопке редактирования')
+  openModal(modalEdit);
+})
+//Кнопка добавления новых карточек
+const buttonAdd = document.querySelector('.profile__add-button');
+buttonAdd.addEventListener('click', function(){
+  console.log('Кликнули по кнопке добавления картинок')
+  openModal(modalAdd);
+})
+//Открытие попапов
+const modalEdit = document.querySelector('.popup_type_edit');
+const modalAdd = document.querySelector('.popup_type_add');
+const modalImage = document.querySelector('.popup_type_image');
+console.log(modalImage)
 
- 
- 
- 
- 
- 
- 
- //////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  const initialCards = [
-    {
-      name: 'Архыз',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-      name: 'Челябинская область',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-      name: 'Иваново',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-      name: 'Камчатка',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-      name: 'Холмогорский район',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-      name: 'Байкал',
-      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    },
-  ];
-  // console.log('Выводим стартовый массив')
-  // console.log('!!!')
-  // console.log(initialCards);
+
+function openModal(modal){
+  modal.classList.toggle('popup_open')
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  },
+];
   //////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////
@@ -56,32 +83,27 @@
     const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
     // console.log(cardElement);
     // Переменные для лайка картинки и корзины
-    const newImg = cardElement.querySelector('.element__image');
-    const trashButton = cardElement.querySelector('.element__trash');
-    const newLike = cardElement.querySelector('.element__like');
-    const newImgZoom = cardElement.querySelector('.popup__image_zoom');
-
+    const cardImg = cardElement.querySelector('.element__image');
+    
+    const cardTrashButton = cardElement.querySelector('.element__trash');
+    const cardLike = cardElement.querySelector('.element__like');
+    const cardImgZoom = cardElement.querySelector('.popup__image_zoom');
     // console.log(newImgZoom);
     const subtitleImgZoom = cardElement.querySelector('.popup__subtitle');
     const newExitButton = cardElement.querySelector('.popup__exit-button');
-    // newExitButton.addEventListener('click', function() {
-    //   closePopups(cardElement)
-    // });
-    newLike.addEventListener('click', function(evt){
-      console.log('Я лайк')
-      evt.target.classList.toggle('element__like_active');
-    })
-    // console.log(subtitleImgZoom);
-    //Забираем инфо из базы
-    //подставляем в карточку
     //////////////////////////////////////////////////////////////////////
-    newImg.src = item.link;
-    newImgZoom.src = item.link;
-    newImg.alt = item.name;
+    cardImg.src = item.link;
+    cardImgZoom.src = item.link;
+    cardImg.alt = item.name;
     subtitleImgZoom.textContent = item.name;
     cardElement.querySelector('.element__title').textContent = item.name;
     //////////////////////////////////////////////////////////////////////
     //Выврдим в карточку
+    cardElement.querySelector('.element__image').addEventListener('click', function (evt) {
+      evt.target.parentNode.children[3].classList.toggle('popup_open')
+    })
+    
+
     card.append(cardElement);
   }
   //////////////////////////////////////////////////////////////////////
@@ -94,14 +116,3 @@
     console.log('Карточки созданы!');
   }
   loadStartCard(initialCards);
-  //////////////////////////////////////////////////////////////////////
-  //Добавление новой карточки в массив карточки/////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  function addCardArray(array){
-    createCardDOM(array);
-    console.log('Карточка добавлена на страницу!')
-  }
-  
-  function test(i) {
-    console.log(i);
-  }

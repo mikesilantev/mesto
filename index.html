@@ -30,7 +30,7 @@
       </section>
     </main>
     <!-- Попап Редактировать профиль -->
-    <div class="popup" id="popupEdit">
+    <div class="popup popup_type_edit">
       <div class="popup__wrap">
           <form action="#" class="popup__form" name="editProfileForm">
             <h2 class="popup__title">Редактировать профиль</h2>
@@ -42,7 +42,7 @@
       </div>
     </div>
     <!-- Попап Новое место -->
-    <div class="popup" id="popupAdd">
+    <div class="popup popup_type_add">
       <div class="popup__wrap">
         <form action="#" class="popup__form" name="addPhotoForm">
           <h2 class="popup__title">Новое место</h2>
@@ -57,7 +57,8 @@
     <footer class="footer">
       <p class="footer__link">&copy; 2020 Mesto Russia</p>
     </footer>
-
+    <!-- <script src="./script/script.js"></script> -->
+    <!-- <script src="./script/new.js"></script> -->
     <template id="card-template">
       <article class="element">
         <button type="reset" class="element__trash link" value="trash"></button>
@@ -66,23 +67,15 @@
           <h3 class="element__title"></h3>
           <button type="button" class="element__like" value="like"></button>
         </div>
-        <div class="popup">
+        <div class="popup popup_type_image">
           <div class="popup__wrap">
             <button class="popup__exit-button link" type="button" value="exit"></button>
             <img src="" alt="" class="popup__image_zoom">
             <h3 class="popup__subtitle"></h3>
           </div>
         </div>
-
       </article>
-
     </template>
-
-
-
-
-    <!-- <script src="./script/script.js"></script> -->
-    <!-- <script src="./script/new.js"></script> -->
     <script src="./script/v5.js"></script>
   </body>
 </html>
