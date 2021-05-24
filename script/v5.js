@@ -1,86 +1,14 @@
-// Константы
-//Кнопки профиля
-const buttonEditProfile = document.querySelector('.profile__edit-button');
-const buttonAddCard = document.querySelector('.profile__add-button');
-//Попапы
-const popupEdit = document.getElementById('popupEdit');
-const popupAdd = document.getElementById('popupAdd');
-// Кнопка редактирования
+// const cardImgElement = document.querySelector('.element__image').addEventListener('click', function(evt){
+//   evt.target.classList.toggle('popup_open');
+// })
 
-//События
-buttonEditProfile.addEventListener('click', openPopups(buttonEditProfile));
-buttonAddCard.addEventListener('click', openPopups(buttonAddCard));
-//Функции
-//Открытие попапа
-function openPopups(item) {
-
-  // item.addEventListener('click', function findPopup(evt) {
-  //   // console.log(item);
-  //   // console.log(item.lastElementChild);
-  //   if (evt.target.classList.contains('element__image')){
-  //     item.lastElementChild.classList.add('popup_open');
-  //     console.log('Открываем картинку')
-  //     // closePopups(item);
-  //   }
-  //   if (evt.target === buttonEditProfile){
-  //     console.log('Повесили листенер')
-  //     popupEdit.classList.add('popup_open');
-  //     // closePopups(popupEdit);
-  //     console.log(popupEdit)
-  //   }
-  //   if (evt.target === buttonAddCard){
-  //     console.log('Повесили листенер')
-  //     popupAdd.classList.add('popup_open');
-  //     // closePopups(popupAdd);
-  //   }
-  //   item.addEventListener('click', function findPopup(){});
-  //   console.log('удаляем листенер')
-  }
-  //////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-function closePopups(item) {
-  item.addEventListener('click', function findExitButton(evt) {
-    if (evt.target.classList.contains('popup__exit-button')){
-      console.log(item)
-      item.classList.remove('popup_open');
-      item.lastElementChild.classList.remove('popup_open');
-      console.log('Закрываем окна');
-      item.removeEventListener('click', function findExitButton(){});
-    }
-    // if ((evt.target.classList.contains('popup__exit-button')) && (item.classList.contains('element'))){
-    //   item.lastElementChild.classList.remove('popup_open');
-    //   console.log('Закрываем картинку');
-    //   console.log(item.lastElementChild.classList)
-    //   console.log(item)
-    // }
-  })
-}
-  //////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-function deleteCard(item) {
-  item.addEventListener('click', function findTrash(evt) {
-    if (evt.target.classList.contains('element__trash')){
-      item.remove();
-    }
-    item.removeEventListener('click', findTrash);
-  })
-  
-}
-  //////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////
-function setLike(item) {
-  const buttonLike = item.children[2].children[1]
-  item.addEventListener('click', function findLike(evt) {
-    if ((evt.target.classList.contains('element__like')) || (evt.target.classList.contains('element__like_active'))) {
-      buttonLike.classList.toggle('element__like_active');
-    }
-    item.removeEventListener('click', findLike);
-  })
-}
-  //////////////////////////////////////////////////////////////////////
+ 
+ 
+ 
+ 
+ 
+ 
+ //////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////
   const initialCards = [
@@ -136,9 +64,13 @@ function setLike(item) {
     // console.log(newImgZoom);
     const subtitleImgZoom = cardElement.querySelector('.popup__subtitle');
     const newExitButton = cardElement.querySelector('.popup__exit-button');
-    newExitButton.addEventListener('click', function() {
-      closePopups(cardElement)
-    });
+    // newExitButton.addEventListener('click', function() {
+    //   closePopups(cardElement)
+    // });
+    newLike.addEventListener('click', function(evt){
+      console.log('Я лайк')
+      evt.target.classList.toggle('element__like_active');
+    })
     // console.log(subtitleImgZoom);
     //Забираем инфо из базы
     //подставляем в карточку
@@ -149,18 +81,6 @@ function setLike(item) {
     subtitleImgZoom.textContent = item.name;
     cardElement.querySelector('.element__title').textContent = item.name;
     //////////////////////////////////////////////////////////////////////
-    newImg.addEventListener('click', function(){
-      openPopups(cardElement);
-    })
-    //Вешаем на корзину событие
-    trashButton.addEventListener('click', function(){
-      console.log('Я корзина')
-      deleteCard(cardElement);
-    })
-    newLike.addEventListener('click', function(){
-      console.log('Я лайк')
-      setLike(cardElement);
-    })
     //Выврдим в карточку
     card.append(cardElement);
   }
