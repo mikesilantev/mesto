@@ -1,4 +1,5 @@
 const buttonEdit = document.querySelector('.profile__edit-button');
+
 buttonEdit.addEventListener('click', function(){
   console.log('Кликнули по кнопке редактирования')
   openModal(modalEdit);
@@ -12,14 +13,17 @@ buttonAdd.addEventListener('click', function(){
 //Открытие попапов
 const modalEdit = document.querySelector('.popup_type_edit');
 const modalAdd = document.querySelector('.popup_type_add');
-const modalImage = document.querySelector('.popup_type_image');
-console.log(modalImage)
 
 
 function openModal(modal){
   modal.classList.toggle('popup_open')
-};
-
+}
+function closeModal(evt){
+  if (evt.target.classList.contains('.popup__exit-button')){
+    console.log('Я кнопка')
+  }
+  modal.classList.toggle('popup_open')
+}
 
 
 
@@ -84,9 +88,6 @@ const initialCards = [
     // console.log(cardElement);
     // Переменные для лайка картинки и корзины
     const cardImg = cardElement.querySelector('.element__image');
-    
-    const cardTrashButton = cardElement.querySelector('.element__trash');
-    const cardLike = cardElement.querySelector('.element__like');
     const cardImgZoom = cardElement.querySelector('.popup__image_zoom');
     // console.log(newImgZoom);
     const subtitleImgZoom = cardElement.querySelector('.popup__subtitle');
@@ -98,12 +99,24 @@ const initialCards = [
     subtitleImgZoom.textContent = item.name;
     cardElement.querySelector('.element__title').textContent = item.name;
     //////////////////////////////////////////////////////////////////////
-    //Выврдим в карточку
+    //Открываем попап с картинкой
     cardElement.querySelector('.element__image').addEventListener('click', function (evt) {
-      evt.target.parentNode.children[3].classList.toggle('popup_open')
+      evt.target.parentNode.children[3].classList.toggle('popup_open');
     })
-    
-
+    // Закрываем
+    cardElement.querySelector('.popup__exit-button').addEventListener('click', function(evt){
+      evt.target.parentElement.classList.toggle('popup_open');
+      console.log(evt.target)
+      evt.target.closest(".popup_open").remove();
+    })
+    //Удаление
+    cardElement.querySelector('.element__trash').addEventListener('click', function(evt){
+      evt.target.closest(".element").remove();
+    })
+    const cardElementLike = cardElement.querySelector('.element__like');
+    cardElementLike.addEventListener('click', function(evt){
+      cardElementLike.classList.toggle('element__like_active')
+    })
     card.append(cardElement);
   }
   //////////////////////////////////////////////////////////////////////
