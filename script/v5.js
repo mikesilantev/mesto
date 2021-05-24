@@ -3,7 +3,7 @@ const buttonEdit = document.querySelector('.profile__edit-button');
 buttonEdit.addEventListener('click', function(){
   console.log('Кликнули по кнопке редактирования')
   openModal(modalEdit);
-  pickProfileOnfo();
+  pickProfileInfo();
 })
 //Кнопка добавления новых карточек
 const buttonAdd = document.querySelector('.profile__add-button');
@@ -18,17 +18,41 @@ const modalAdd = document.querySelector('.popup_type_add');
 
 function openModal(modal){
   modal.classList.toggle('popup_open');
-  console.log('Открываем')
-  console.log(modal)
-  closeModal(modal)
+  console.log('Открываем окно ' + modal.classList)
+  // console.log(modal)
+  // closeModal(modal);
+  if (modal === modalEdit) {
+    modal.querySelector('.popup__exit-button').addEventListener('click', function(){
+      console.log('Я кнопка в едиторе')
+      closeModal(modalEdit)
+    })
+  }
+  if (modal === modalAdd){
+    modal.querySelector('.popup__exit-button').addEventListener('click', function(){
+      console.log('Я кнопка в добавлении')
+      closeModal(modalAdd)
+    })
+  }
 }
-function closeModal(modal){
-  modal.querySelector('.popup__exit-button').addEventListener('click', function(){
-    modal.classList.remove('popup_open');
-    console.log('Закрываем...')
-  })
-  console.log('Всегда выполняем...')
+
+function closeModal (modal) {
+  modal.classList.remove('popup_open')
 }
+// function closeModal(modal){
+//   if ((modal === modalEdit) || (modal === modalAdd)){
+//     modal.querySelector('.profile__edit-button').addEventListener('click', function(){
+//       modal.classList.remove('popup_open');
+//     });
+//     console.log('Форма') 
+//   }
+//   // Если формы то вешаем листенер
+//   // на кнопки
+//   modal.querySelector('.popup__exit-button').addEventListener('click', function(){
+//     modal.classList.remove('popup_open');
+//     console.log('Закрываем...')
+//   })
+//   console.log('Всегда выполняем...')
+// }
 
 //Забираем данные из профиля
 // Переменные
@@ -38,21 +62,22 @@ const jobInput = document.querySelector('.popup__input_text_job');
 const profileTitle = profileElement.querySelector('.profile__title');
 const profileJob = profileElement.querySelector('.profile__subtitle');
 // Вставка инфы из профиля в попап
-function pickProfileOnfo() {
+function pickProfileInfo() {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileJob.textContent;
 }
 
 
-// //Сохранение title
-// const saveProfileButton = document.getElementById('saveProfile');
-// function formSubmitHandler(evt) {
-//   const profileForm = document.getElementsById('editProfileForm');
-//   console.log
-//     evt.preventDefault();
-//     profileTitle.textContent = nameInput.value;
-//     profileJob.textContent = jobInput.value;
-// }
+modalEdit.addEventListener('submit', formSubmitHandler);
+
+
+
+function formSubmitHandler (evt) {
+  evt.preventDefault();
+    profileTitle.textContent = nameInput.value;
+    profileJob.textContent = jobInput.value;
+    closeModal(modalEdit);
+}
 
 
 
