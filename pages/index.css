@@ -31,13 +31,16 @@
 @import url(../blocks/footer/__link/footer__link.css);
 /* link   */
 @import url(../blocks/link/link.css);
-/* overley */
-/* @import url(../blocks/overlay/overlay.css);
-@import url(../blocks/overlay/_popup-open/overlay_popup-open.css); */
 /* popup */
-/* @import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__wrap/popup__wrap.css);
 @import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__exit-button/popup__exit-button.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/__subtitle/popup__subtitle.css);
 @import url(../blocks/popup/__save-button/popup__save-button.css);
-@import url(../blocks/popup/__exit-button/popup__exit-button.css); */
+@import url(../blocks/popup/_open/popup_open.css);
+@import url(../blocks/popup/_close/popup_close.css);
+@import url(../blocks/popup/_type/popup_type_image.css);

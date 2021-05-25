@@ -113,7 +113,7 @@ function createCardDOM(array) {
   newCardImg.addEventListener('click', function (evt) {
     evt.target.parentNode.children[3].classList.toggle('popup_open');
   })
-  const newCardImgZoom = cardElement.querySelector('.popup__image_zoom');
+  const newCardImgZoom = cardElement.querySelector('.popup__image');
   const subtitleImgZoom = cardElement.querySelector('.popup__subtitle');
 
   cardElement.querySelector('.popup__exit-button').addEventListener('click', function (evt) {

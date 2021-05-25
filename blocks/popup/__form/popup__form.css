@@ -1,4 +1,7 @@
 .popup__form {
+    background-color: #fff;
+    max-width: 430px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     padding: 34px 36px 37px;
