@@ -24,7 +24,6 @@ const initialCards = [
     link: 'https://images.unsplash.com/photo-1563271834-46ce38124976?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1341&q=80'
   },
 ];
-
 const cardTemplate = document.querySelector('#card-template').content;
 // console.log(cardTemplate);
 //Секция элементс для вставки карточек
@@ -43,9 +42,6 @@ function createCardDOM(cardTitle, cardLink) {
     const popupSubtitle = newCardImg.alt;
     addImageToModal(popupImage , popupSubtitle)
   })
-  // cardElement.querySelector('.element__trash').addEventListener('click', function (evt) {
-  //   evt.target.closest(".element").remove();
-  // })
   cardElement.querySelector('.element__trash').addEventListener('click', (evt) =>{
     evt.target.closest(".element").remove();
   })
@@ -86,7 +82,6 @@ function addImageToModal(link, subtitle){
 }
 
 const buttonEdit = document.querySelector('.profile__edit-button');
-
 buttonEdit.addEventListener('click', () => {
   // console.log('Кликнули по кнопке редактирования')
   openModal(modalEdit);
