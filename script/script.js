@@ -40,9 +40,9 @@ function createCardDOM(cardTitle, cardLink) {
     openModal(modalImage);
     const popupImage = newCardImg.src;
     const popupSubtitle = newCardImg.alt;
-    addImageToModal(popupImage , popupSubtitle)
+    addImageToModal(popupImage, popupSubtitle)
   })
-  cardElement.querySelector('.element__trash').addEventListener('click', (evt) =>{
+  cardElement.querySelector('.element__trash').addEventListener('click', (evt) => {
     evt.target.closest(".element").remove();
   })
   const cardElementLike = cardElement.querySelector('.element__like');
@@ -76,7 +76,7 @@ function addCard(evt) {
   }
 }
 //Функция добавлени картинки в модалку
-function addImageToModal(link, subtitle){
+function addImageToModal(link, subtitle) {
   modalImage.querySelector('.popup__image').src = link;
   modalImage.querySelector('.popup__subtitle').textContent = subtitle;
 }
@@ -137,4 +137,3 @@ function edirProfile(evt) {
   profileJob.textContent = jobInput.value;
   closeModal(modalEdit);
 }
-
