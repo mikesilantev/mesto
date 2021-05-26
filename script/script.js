@@ -24,14 +24,14 @@ const initialCards = [
     link: 'https://images.unsplash.com/photo-1563271834-46ce38124976?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1341&q=80'
   },
 ];
+
 const cardTemplate = document.querySelector('#card-template').content;
 // console.log(cardTemplate);
 //Секция элементс для вставки карточек
 const cardsContainer = document.querySelector('.elements');
 //Создание разметки для карточки//////////////////////////////////////
-// Создание разметки
 function createCardDOM(cardTitle, cardLink) {
-  console.log('Создаем разметку')
+  // console.log('Создаем разметку')
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
   const newCardImg = cardElement.querySelector('.element__image');
   newCardImg.src = cardLink;
@@ -39,25 +39,107 @@ function createCardDOM(cardTitle, cardLink) {
   cardElement.querySelector('.element__title').textContent = cardTitle;
   newCardImg.addEventListener('click', () => {
     openModal(modalImage);
+    const popupImage = newCardImg.src;
+    const popupSubtitle = newCardImg.alt;
+    addImageToModal(popupImage , popupSubtitle)
   })
-  cardElement.querySelector('.element__trash').addEventListener('click', function (evt) {
+  // cardElement.querySelector('.element__trash').addEventListener('click', function (evt) {
+  //   evt.target.closest(".element").remove();
+  // })
+  cardElement.querySelector('.element__trash').addEventListener('click', (evt) =>{
     evt.target.closest(".element").remove();
   })
   const cardElementLike = cardElement.querySelector('.element__like');
-  cardElementLike.addEventListener('click', function () {
+  cardElementLike.addEventListener('click', () => {
     cardElementLike.classList.toggle('element__like_active')
   })
-  console.log('Возвращаем разметку')
+  // console.log('Возвращаем разметку')
   return renderCard(cardElement)
 }
+//Добавляем ккарточку к контейнер
 function renderCard(itemCard) {
   cardsContainer.prepend(itemCard);
 }
-
-initialCards.forEach(function (array) {
+//Перебираем массив и создаем DOM для карточек
+initialCards.forEach((array) => {
   let arrayName = array.name;
   let arrayLink = array.link;
   createCardDOM(arrayName, arrayLink);
 })
+//Добавление новой карточки
+function addCard(evt) {
+  evt.preventDefault();
+  const locInput = modalAdd.querySelector('.popup__input_text_loc-name');
+  const urlInput = modalAdd.querySelector('.popup__input_text_url');
+  if ((locInput.value === '') || (urlInput.value === '')) {
+    closeModal(modalAdd);
+  }
+  if ((locInput.value != '') || (urlInput.value != '')) {
+    createCardDOM(locInput.value, urlInput.value);
+    closeModal(modalAdd);
+  }
+}
+//Функция добавлени картинки в модалку
+function addImageToModal(link, subtitle){
+  modalImage.querySelector('.popup__image').src = link;
+  modalImage.querySelector('.popup__subtitle').textContent = subtitle;
+}
 
+const buttonEdit = document.querySelector('.profile__edit-button');
+
+buttonEdit.addEventListener('click', () => {
+  // console.log('Кликнули по кнопке редактирования')
+  openModal(modalEdit);
+  pickProfileInfo();
+})
+//Кнопка добавления новых карточек
+const buttonAdd = document.querySelector('.profile__add-button');
+buttonAdd.addEventListener('click', () => {
+  // console.log('Кликнули по кнопке добавления картинок')
+  openModal(modalAdd);
+})
+//Открытие попапов
+const modalEdit = document.querySelector('.popup_type_edit');
+const modalAdd = document.querySelector('.popup_type_add');
+const modalImage = document.querySelector('.popup_type_image');
+//
+function openModal(modal) {
+  modal.classList.toggle('popup_open');
+}
+//Листенер на закрытие окна редактирования
+modalEdit.querySelector('.popup__exit-button').addEventListener('click', () => {
+  closeModal(modalEdit);
+})
+//Листенер на закрытие окна добавления
+modalAdd.querySelector('.popup__exit-button').addEventListener('click', () => {
+  closeModal(modalAdd);
+})
+//Листенер на закрытие модалки с картинкой
+modalImage.querySelector('.popup__exit-button').addEventListener('click', () => {
+  closeModal(modalImage);
+})
+function closeModal(modal) {
+  modal.classList.remove('popup_open')
+}
+//Забираем данные из профиля
+// Переменные
+const profileElement = document.querySelector('.profile');
+const nameInput = document.querySelector('.popup__input_text_name');
+const jobInput = document.querySelector('.popup__input_text_job');
+const profileTitle = profileElement.querySelector('.profile__title');
+const profileJob = profileElement.querySelector('.profile__subtitle');
+// Вставка инфы из профиля в попап
+function pickProfileInfo() {
+  nameInput.value = profileTitle.textContent;
+  jobInput.value = profileJob.textContent;
+}
+modalEdit.addEventListener('submit', edirProfile);
+modalAdd.addEventListener('submit', addCard);
+
+function edirProfile(evt) {
+  evt.preventDefault();
+  profileTitle.textContent = nameInput.value;
+  profileJob.textContent = jobInput.value;
+  closeModal(modalEdit);
+}
 
