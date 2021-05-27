@@ -50,15 +50,19 @@ function createCardDOM() {
   return cardElement;
 }
 //Добавляем карточку к контейнер
+const modalImageSrc = modalImage.querySelector('.popup__image');
+const modalImageAlt = modalImage.querySelector('.popup__image');
+const modalImageSubtitle =modalImage.querySelector('.popup__subtitle');
+
 function renderCard(name, url) {
   let newCard = createCardDOM();
   let cardImageRender = newCard.querySelector('.element__image');
   let cardSubtitleElement = newCard.querySelector('.element__title');
   cardImageRender.src = url;
   cardSubtitleElement.textContent = name;
-  modalImage.querySelector('.popup__image').src = url;
-  modalImage.querySelector('.popup__image').alt = name;
-  modalImage.querySelector('.popup__subtitle').textContent = name;
+  modalImageSrc.src = url;
+  modalImageAlt.alt = name;
+  modalImageSubtitle.textContent = name;
   cardsContainer.prepend(newCard);
 }
 //Перебираем массив и создаем DOM для карточек
