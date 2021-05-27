@@ -24,24 +24,23 @@ const initialCards = [
     link: 'https://images.unsplash.com/photo-1563271834-46ce38124976?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1341&q=80'
   },
 ];
+const modalEdit = document.querySelector('.popup_type_edit');
+const modalAdd = document.querySelector('.popup_type_add');
+const modalImage = document.querySelector('.popup_type_image');
+
 const cardTemplate = document.querySelector('#card-template').content;
 // console.log(cardTemplate);
 //Секция элементс для вставки карточек
 const cardsContainer = document.querySelector('.elements');
 //Создание разметки для карточки//////////////////////////////////////
-function createCardDOM(cardTitle, cardLink) {
+function createCardDOM() {
   // console.log('Создаем разметку')
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
-  const newCardImg = cardElement.querySelector('.element__image');
-  newCardImg.src = cardLink;
-  newCardImg.alt = cardTitle;
-  cardElement.querySelector('.element__title').textContent = cardTitle;
-  newCardImg.addEventListener('click', () => {
+  cardElement.querySelector('.element__image').addEventListener('click', () => {
+    console.log(cardElement.parentNode);
     openModal(modalImage);
-    const popupImage = newCardImg.src;
-    const popupSubtitle = newCardImg.alt;
-    addImageToModal(popupImage, popupSubtitle)
   })
+
   cardElement.querySelector('.element__trash').addEventListener('click', (evt) => {
     evt.target.closest(".element").remove();
   })
@@ -49,18 +48,27 @@ function createCardDOM(cardTitle, cardLink) {
   cardElementLike.addEventListener('click', () => {
     cardElementLike.classList.toggle('element__like_active')
   })
-  // console.log('Возвращаем разметку')
-  return renderCard(cardElement)
+  return cardElement;
 }
+//Открытие попапов
+
 //Добавляем ккарточку к контейнер
-function renderCard(itemCard) {
-  cardsContainer.prepend(itemCard);
+function renderCard(name, url) {
+  let newCard = createCardDOM();
+  let cardImageRender = newCard.querySelector('.element__image');
+  let cardSubtitleElement = newCard.querySelector('.element__title');
+  cardImageRender.src = url;
+  cardSubtitleElement.textContent = name;
+  modalImage.querySelector('.popup__image').src = url;
+  modalImage.querySelector('.popup__image').alt = name;
+  modalImage.querySelector('.popup__subtitle').textContent = name;
+  cardsContainer.prepend(newCard);
 }
 //Перебираем массив и создаем DOM для карточек
 initialCards.forEach((array) => {
   let arrayName = array.name;
   let arrayLink = array.link;
-  createCardDOM(arrayName, arrayLink);
+  renderCard(arrayName, arrayLink);
 })
 //Добавление новой карточки
 function addCard(evt) {
@@ -71,16 +79,11 @@ function addCard(evt) {
     closeModal(modalAdd);
   }
   if ((locInput.value != '') || (urlInput.value != '')) {
-    createCardDOM(locInput.value, urlInput.value);
+    createCardDOM();
+    renderCard(locInput.value, urlInput.value);
     closeModal(modalAdd);
   }
 }
-//Функция добавлени картинки в модалку
-function addImageToModal(link, subtitle) {
-  modalImage.querySelector('.popup__image').src = link;
-  modalImage.querySelector('.popup__subtitle').textContent = subtitle;
-}
-
 const buttonEdit = document.querySelector('.profile__edit-button');
 buttonEdit.addEventListener('click', () => {
   // console.log('Кликнули по кнопке редактирования')
@@ -93,11 +96,7 @@ buttonAdd.addEventListener('click', () => {
   // console.log('Кликнули по кнопке добавления картинок')
   openModal(modalAdd);
 })
-//Открытие попапов
-const modalEdit = document.querySelector('.popup_type_edit');
-const modalAdd = document.querySelector('.popup_type_add');
-const modalImage = document.querySelector('.popup_type_image');
-//
+
 function openModal(modal) {
   modal.classList.toggle('popup_open');
 }
