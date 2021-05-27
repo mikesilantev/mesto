@@ -27,7 +27,6 @@ const initialCards = [
 const modalEdit = document.querySelector('.popup_type_edit');
 const modalAdd = document.querySelector('.popup_type_add');
 const modalImage = document.querySelector('.popup_type_image');
-
 const cardTemplate = document.querySelector('#card-template').content;
 // console.log(cardTemplate);
 //Секция элементс для вставки карточек
@@ -50,9 +49,7 @@ function createCardDOM() {
   })
   return cardElement;
 }
-//Открытие попапов
-
-//Добавляем ккарточку к контейнер
+//Добавляем карточку к контейнер
 function renderCard(name, url) {
   let newCard = createCardDOM();
   let cardImageRender = newCard.querySelector('.element__image');
@@ -96,7 +93,6 @@ buttonAdd.addEventListener('click', () => {
   // console.log('Кликнули по кнопке добавления картинок')
   openModal(modalAdd);
 })
-
 function openModal(modal) {
   modal.classList.toggle('popup_open');
 }
