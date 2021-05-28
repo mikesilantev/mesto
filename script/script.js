@@ -42,8 +42,6 @@ const modalImageSubtitle = modalImage.querySelector('.popup__subtitle');
 const cardTemplate = document.querySelector('#card-template').content;
 const cardsContainer = document.querySelector('.elements');
 //Create card DOM
-
-
 function createCardDOM(name, url) {
   console.log('Создаем разметку');
   const cardElement = cardTemplate.querySelector('.element').cloneNode(true);
@@ -145,7 +143,7 @@ function pickProfileInfo() {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileJob.textContent;
 }
-//listener on submit butoon
+//listener on submit button
 modalEdit.addEventListener('submit', edirProfile);
 modalAdd.addEventListener('submit', addCard);
 //Edit profile
