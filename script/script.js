@@ -29,6 +29,12 @@ const initialCards = [
   },
 ];
 //Modal
+
+
+
+
+
+
 const modalEdit = document.querySelector('.popup_type_edit');
 //Modal Add Card
 const modalAdd = document.querySelector('.popup_type_add');
@@ -144,10 +150,10 @@ function pickProfileInfo() {
   jobInput.value = profileJob.textContent;
 }
 //listener on submit button
-modalEdit.addEventListener('submit', edirProfile);
+modalEdit.addEventListener('submit', editProfile);
 modalAdd.addEventListener('submit', addCard);
 //Edit profile
-function edirProfile(evt) {
+function editProfile(evt) {
   evt.preventDefault();
   profileTitle.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
