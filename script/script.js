@@ -121,10 +121,11 @@ buttonAdd.addEventListener('click', () => {
 //Open all modal =*) (Khaz Modan)
 function openModal(modal) {
   modal.classList.toggle('popup_open');
+  document.addEventListener('keydown', handleEscUp);
   closeOverley(modal);
 }
 //Overley click close 
-function closeOverley(modal){
+const closeOverley = (modal) => {
   modal.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('popup_open')) {
       closeModal(modal);
@@ -134,6 +135,26 @@ function closeOverley(modal){
   // console.log(modal);
 }
 
+// ESC close
+const handleEscUp = (evt) => {
+  const activePopup = document.querySelector('.popup_open');
+  if (evt.key === 'Escape') {
+    // console.log('Куку');
+    activePopup.classList.remove('popup_open');
+  }
+  // console.log(evt);
+}
+
+
+
+// const handleEscUp = (modal, evt) => {
+//   modal.classList.add('хуй');
+//   console.log('handleEscUp');
+//   if (evt.key === 'Escape') {
+//     console.log('Нажали Эскейп');
+//   }
+//   console.log('Эммм....')
+// }
 
 
 
