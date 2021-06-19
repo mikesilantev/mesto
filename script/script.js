@@ -121,18 +121,20 @@ buttonAdd.addEventListener('click', () => {
 //Open all modal =*) (Khaz Modan)
 function openModal(modal) {
   modal.classList.toggle('popup_open');
-  //ESC close modal
-  document.addEventListener('keydown', handleEscUp);
+  closeOverley(modal);
+}
+//Overley click close 
+function closeOverley(modal){
+  modal.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup_open')) {
+      closeModal(modal);
+      // console.log(modal);
+    }
+  });
+  // console.log(modal);
 }
 
-const handleEscUp = (evt) => {
-  evt.preventDefault();
-  const activePopup = document.querySelector('.popup_open');
-  if (evt.key === 'Escape') {
-    // console.log(evt);
-    closeModal(activePopup);
-  }
-};
+
 
 
 
@@ -150,7 +152,9 @@ modalImage.querySelector('.popup__exit-button').addEventListener('click', () => 
 });
 //Close all modal
 function closeModal(modal) {
+  // document.removeEventListener('keydown', handleEscUp);
   modal.classList.remove('popup_open');
+  modal.removeEventListener('click', (evt) => {});
 }
 // get data in profile
 const profileElement = document.querySelector('.profile');

@@ -15,7 +15,7 @@ const setEventListeners = (formElement, {inputSelector, submitButtonSelector, ..
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
 
   const buttonElement = formElement.querySelector(submitButtonSelector);
-  console.log(buttonElement);
+  // console.log(buttonElement);
 
   // console.log(buttonList);
 
