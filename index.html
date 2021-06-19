@@ -32,11 +32,18 @@
     <!-- Попап Редактировать профиль -->
     <div class="popup popup_type_edit">
       <div class="popup__wrap">
-          <form action="#" class="popup__form" name="editProfileForm">
+          <form action="#" class="popup__form" name="editProfileForm" novalidate>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input class="popup__input popup__input_text_name" required type="text" name="nameInput"/>
-            <input class="popup__input popup__input_text_job" required type="text" name="jobInput"/>
-            <button class="popup__save-button" disabled id="saveProfile" type="submit" value="Сохранить">Сохранить</button>
+
+            <input id="input_name" class="popup__input popup__input_text_name" type="text" name="nameInput" required minlength="2" maxlength="30"/>
+            <!-- Ошибка имени -->
+            <span class="input_name-error popup__input-error"></span>
+
+            <input id="input_job" class="popup__input popup__input_text_job"  type="text" name="jobInput" required minlength="2" maxlength="200"/>
+            <!-- Ошибка о себе -->
+            <span class="input_job-error popup__input-error"></span>
+
+            <button class="popup__save-button" id="saveProfile" type="submit" value="Сохранить">Сохранить</button>
           </form>
           <button class="popup__exit-button link" type="button" value="exit"></button>
       </div>
@@ -44,10 +51,17 @@
     <!-- Попап Новое место -->
     <div class="popup popup_type_add">
       <div class="popup__wrap">
-        <form action="#" class="popup__form" name="addPhotoForm">
+        <form action="#" class="popup__form" name="addPhotoForm" novalidate>
           <h2 class="popup__title">Новое место</h2>
-          <input class="popup__input popup__input_text_loc-name" required type="text" name="locNameInput" placeholder="Имя карточки"/>
-          <input class="popup__input popup__input_text_url" required type="url" name="urlInput" placeholder="Ссылка на картинку"/>
+
+          <input id="input_loc-name" class="popup__input popup__input_text_loc-name" required type="text" name="locNameInput" placeholder="Имя карточки" required minlength="2" maxlength="30"/>
+
+          <span class="popup__input-error input_loc-name-error"></span>
+
+          <input id="input_url" class="popup__input popup__input_text_url" type="url" name="urlInput" placeholder="Ссылка на картинку" required/>
+
+          <span class="popup__input-error input_url-error"></span>
+
           <button class="popup__save-button popup__save-button_disable popup__save-button_add-card" id="saveCard" type="submit" required value="Сохранить">Сохранить</button>
           <!-- <button class="popup__save-button popup__save-button_disable popup__save-button_add-card" id="saveCard" type="submit" value="Сохранить">Сохранить</button> -->
         </form>
@@ -77,6 +91,8 @@
       </article>
     </template>
     <script src="./script/script.js"></script>
+    <script src="./script/validate.js"></script>
+    <!-- <script src="./script/test.js"></script> -->
   </body>
 </html>
 

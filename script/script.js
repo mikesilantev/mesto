@@ -68,17 +68,17 @@ function createCardDOM(name, url) {
     modalImageSubtitle.textContent = name;
     // console.log(cardElement);
     openModal(modalImage);
-  })
+  });
 
   //Trash button - listener & remove card
   cardElement.querySelector('.element__trash').addEventListener('click', (evt) => {
     evt.target.closest('.element').remove();
-  })
+  });
 
   //Like button - listener & toggle class
   cardElementLike.addEventListener('click', () => {
-    cardElementLike.classList.toggle('element__like_active')
-  })
+    cardElementLike.classList.toggle('element__like_active');
+  });
   return cardElement;
 }
 
@@ -91,11 +91,10 @@ function renderCard(newCard) {
 initialCards.forEach((array) => {
   const newCard = createCardDOM(array.name, array.link);
   renderCard(newCard);
-})
+});
 
 //Add new card - conditions, create DOM & add it to the section
-function addCard(evt) {
-  evt.preventDefault();
+function addCard() {
   if ((locInput.value === '') || (urlInput.value === '')) {
     closeModal(modalAdd);
   }
@@ -113,31 +112,45 @@ const buttonEdit = document.querySelector('.profile__edit-button');
 buttonEdit.addEventListener('click', () => {
   openModal(modalEdit);
   pickProfileInfo();
-})
+});
 //Button - add new card 
 const buttonAdd = document.querySelector('.profile__add-button');
 buttonAdd.addEventListener('click', () => {
   openModal(modalAdd);
-})
+});
 //Open all modal =*) (Khaz Modan)
 function openModal(modal) {
   modal.classList.toggle('popup_open');
+  //ESC close modal
+  document.addEventListener('keydown', handleEscUp);
 }
+
+const handleEscUp = (evt) => {
+  evt.preventDefault();
+  const activePopup = document.querySelector('.popup_open');
+  if (evt.key === 'Escape') {
+    // console.log(evt);
+    closeModal(activePopup);
+  }
+};
+
+
+
 //Listener on close button for Modal Edit Profile
 modalEdit.querySelector('.popup__exit-button').addEventListener('click', () => {
   closeModal(modalEdit);
-})
+});
 //Listener on close button for Modal Add New Card
 modalAdd.querySelector('.popup__exit-button').addEventListener('click', () => {
   closeModal(modalAdd);
-})
+});
 //Listener on close button for Modal Image
 modalImage.querySelector('.popup__exit-button').addEventListener('click', () => {
   closeModal(modalImage);
-})
+});
 //Close all modal
 function closeModal(modal) {
-  modal.classList.remove('popup_open')
+  modal.classList.remove('popup_open');
 }
 // get data in profile
 const profileElement = document.querySelector('.profile');
@@ -153,8 +166,7 @@ function pickProfileInfo() {
 modalEdit.addEventListener('submit', editProfile);
 modalAdd.addEventListener('submit', addCard);
 //Edit profile
-function editProfile(evt) {
-  evt.preventDefault();
+function editProfile() {
   profileTitle.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
   closeModal(modalEdit);

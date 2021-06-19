@@ -5,7 +5,7 @@
     font-size: 14px;
     line-height: 17px;
     color: #000;
-    margin-bottom: 18px;
+    /* margin-bottom: 18px; */
 }
 .popup__input:focus{
     outline: 3px solid rgb(67, 189, 246);
