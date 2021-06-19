@@ -11,10 +11,12 @@ const enableValidation = ({formSelector, ...rest}) => {
   // console.log(formList);
 };
 
-const setEventListeners = (formElement, {inputSelector, submitButtonSelector, ...rest}) => {
+const setEventListeners = (formElement, {inputSelector, submitButtonSelector, inactiveButtonClass, ...rest}) => {
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
-
+  
   const buttonElement = formElement.querySelector(submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, inactiveButtonClass);
+  resetError(formElement);
   // console.log(buttonElement);
 
   // console.log(buttonList);
@@ -29,7 +31,7 @@ const setEventListeners = (formElement, {inputSelector, submitButtonSelector, ..
       //Проверка на валидность
       checkInputValidity(formElement, inputElement, {...rest});
       // console.log(evt);
-      toggleButtonState(inputList, buttonElement);
+      toggleButtonState(inputList, buttonElement, inactiveButtonClass);
 
       // console.log(evt);
     });
@@ -55,16 +57,16 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonElement) => {
+const toggleButtonState = (inputList, buttonElement, inactiveButtonClass) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('button_inactive');
-    console.log('Активна кнопка');
+    buttonElement.classList.add(inactiveButtonClass);
+    buttonElement.setAttribute('disabled', 'disabled');
     // console.log(inputList);
   } else {
-    console.log('Не активна');
-    buttonElement.classList.remove('button_inactive');
+    buttonElement.classList.remove(inactiveButtonClass);
+    buttonElement.removeAttribute('disabled', 'disabled');
   }
-  console.log('я функция toggleButtonState');
+  // console.log('я функция toggleButtonState');
   // console.log(buttonElement);
 };
 
@@ -77,12 +79,11 @@ const showInputError = (formElement, inputElement, errorMessage, inputErrorClass
   // console.log(inputElement);
   console.log(inputErrorClass);
   inputElement.classList.add(inputErrorClass);
-
   errorElement.textContent = errorMessage;
   errorElement.classList.add(errorClass);
 };
 
-const hideInputError = (formElement, inputElement, errorMessage, inputErrorClass, errorClass) => {
+const hideInputError = (formElement, inputElement, inputErrorClass, errorClass) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(inputErrorClass);
   errorElement.textContent = '';
@@ -90,7 +91,6 @@ const hideInputError = (formElement, inputElement, errorMessage, inputErrorClass
 };
 
 
-// function toggleButtonState();
 
 enableValidation({
   formSelector: '.popup__form',

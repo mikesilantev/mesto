@@ -1,8 +1,10 @@
-.popup__input-error {
+.popup__error {
   color: #f00;
   font-size: 12px;
   line-height: 15px;
-  opacity: 1;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
   margin-top: 5px;
+  max-width: 358px;
+  opacity: 0;
+  min-height: 30px;
 }

@@ -123,18 +123,28 @@ function openModal(modal) {
   modal.classList.toggle('popup_open');
   document.addEventListener('keydown', handleEscUp);
   closeOverley(modal);
+  resetError(modal);
 }
+//Reset
+const resetError = (modal) => {
+  if ((modal.classList.contains('popup_type_add')) || (modal.classList.contains('popup_type_edit'))) {
+    const popupForm = modal.querySelector('.popup__form');
+    popupForm.reset();
+    // console.log(popupForm);
+    // modal.reset();
+  }
+};
+
 //Overley click close 
 const closeOverley = (modal) => {
-  modal.addEventListener('click', (evt) => {
+  modal.addEventListener('mousedown', (evt) => {
     if (evt.target.classList.contains('popup_open')) {
       closeModal(modal);
       // console.log(modal);
     }
   });
   // console.log(modal);
-}
-
+};
 // ESC close
 const handleEscUp = (evt) => {
   const activePopup = document.querySelector('.popup_open');
@@ -144,20 +154,6 @@ const handleEscUp = (evt) => {
   }
   // console.log(evt);
 }
-
-
-
-// const handleEscUp = (modal, evt) => {
-//   modal.classList.add('хуй');
-//   console.log('handleEscUp');
-//   if (evt.key === 'Escape') {
-//     console.log('Нажали Эскейп');
-//   }
-//   console.log('Эммм....')
-// }
-
-
-
 
 //Listener on close button for Modal Edit Profile
 modalEdit.querySelector('.popup__exit-button').addEventListener('click', () => {
@@ -173,9 +169,8 @@ modalImage.querySelector('.popup__exit-button').addEventListener('click', () => 
 });
 //Close all modal
 function closeModal(modal) {
-  // document.removeEventListener('keydown', handleEscUp);
   modal.classList.remove('popup_open');
-  modal.removeEventListener('click', (evt) => {});
+  modal.removeEventListener('mousedown', (evt) => {});
 }
 // get data in profile
 const profileElement = document.querySelector('.profile');

@@ -23,10 +23,3 @@
 .popup__save-button:hover {
     opacity: .8;
 }
-
-.popup__save-button:disabled {
-    border: 1px solid rgba(0,0,0, .2);
-    color: rgba(0,0,0, .2);
-    background: #fff;
-}
-
