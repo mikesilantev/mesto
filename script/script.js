@@ -110,6 +110,10 @@ buttonAdd.addEventListener('click', () => {
 function openModal(modal) {
   modal.classList.toggle('popup_open');
   addListenerForm(modal);
+  if (modal.classList.contains('popup_type_add')){
+    const resetForm = modal.querySelector('.popup__form');
+    resetForm.reset();
+  }
 }
 const addListenerForm = (modal) => {
   document.addEventListener('keydown', handleEscUp);
@@ -179,11 +183,16 @@ modalImage.querySelector('.popup__exit-button').addEventListener('click', () => 
   closeModal(modalImage);
 });
 //Close all modal
+
+
+
 function closeModal(modal) {
   modal.classList.remove('popup_open');
   document.removeEventListener('keydown', handleEscUp);
   modal.removeEventListener('mousedown', closeOverley(modal));
 }
+
+
 // Рабочая
 // function closeModal(modal) {
 //   modal.classList.remove('popup_open');
