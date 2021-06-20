@@ -1,7 +1,6 @@
 //Mesto 1.0.6 upd 20/06/2021
 //Mesto 1.0.3 upd 28/05/2021
 //Array with data
-
 //Modal
 const modalEdit = document.querySelector('.popup_type_edit');
 //Modal Add Card
