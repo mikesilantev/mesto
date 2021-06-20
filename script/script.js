@@ -1,7 +1,6 @@
 //Mesto 1.0.3 
 //28.05.2021
-
-//Array with data
+//Modal
 const initialCards = [
   {
     name: 'GAME OVER',
@@ -28,13 +27,6 @@ const initialCards = [
     link: 'https://images.unsplash.com/photo-1593693846852-afc7461355ad?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA2fHxuaW50ZW5kbyUyMGdhbWV8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
   },
 ];
-//Modal
-
-
-
-
-
-
 const modalEdit = document.querySelector('.popup_type_edit');
 //Modal Add Card
 const modalAdd = document.querySelector('.popup_type_add');
@@ -95,18 +87,13 @@ initialCards.forEach((array) => {
 
 //Add new card - conditions, create DOM & add it to the section
 function addCard() {
-  if ((locInput.value === '') || (urlInput.value === '')) {
-    closeModal(modalAdd);
-  }
-  if ((locInput.value != '') || (urlInput.value != '')) {
     const newCard = createCardDOM(locInput.value, urlInput.value);
     renderCard(newCard);
     closeModal(modalAdd);
-    //return blank input
     locInput.value = '';
     urlInput.value = '';
   }
-}
+
 //Button - edit profile
 const buttonEdit = document.querySelector('.profile__edit-button');
 buttonEdit.addEventListener('click', () => {
@@ -119,38 +106,62 @@ buttonAdd.addEventListener('click', () => {
   openModal(modalAdd);
 });
 //Open all modal =*) (Khaz Modan)
+
 function openModal(modal) {
   modal.classList.toggle('popup_open');
-  document.addEventListener('keydown', handleEscUp);
-  closeOverley(modal);
-  resetError(modal);
+  addListenerForm(modal);
 }
-//Reset
-const resetError = (modal) => {
-  if ((modal.classList.contains('popup_type_add')) || (modal.classList.contains('popup_type_edit'))) {
-    const popupForm = modal.querySelector('.popup__form');
-    popupForm.reset();
-    // console.log(popupForm);
-    // modal.reset();
-  }
+const addListenerForm = (modal) => {
+  document.addEventListener('keydown', handleEscUp);
+  modal.addEventListener('mousedown', closeOverley(modal));
 };
-
-//Overley click close 
-const closeOverley = (modal) => {
-  modal.addEventListener('mousedown', (evt) => {
+const closeOverley = function(modal){
+  modal.addEventListener('mousedown', (evt) =>{
     if (evt.target.classList.contains('popup_open')) {
       closeModal(modal);
-      // console.log(modal);
     }
   });
-  // console.log(modal);
-};
+}
+//Reset
+// const resetError = (modal) => {
+//   if ((modal.classList.contains('popup_type_add')) || (modal.classList.contains('popup_type_edit'))) {
+//     const popupForm = modal.querySelector('.popup__form');
+//     popupForm.reset();
+//     // console.log(popupForm);
+//     // modal.reset();
+//   }
+// };
+
+// Overley click close 
+// const closeOverley = function(modal){
+//   modal.addEventListener('mousedown', (evt) => {
+//     if (evt.target.classList.contains('popup_open')){
+//       console.log(evt);
+//     };
+//   });
+// }
+// const closeOverley = (modal) => {
+//   modal.addEventListener('mousedown', (evt) => {
+//     if (evt.target.classList.contains('popup_open')) {
+
+//       closeModal(modal);
+      
+//       console.log(modal);
+//       console.log('Вызываем функцию closeModal');
+//     } else {
+//       console.log('Я не оверлей');
+//     }
+    
+//   });
+
+// };
+
 // ESC close
 const handleEscUp = (evt) => {
-  const activePopup = document.querySelector('.popup_open');
   if (evt.key === 'Escape') {
+    const activePopup = document.querySelector('.popup_open');
     // console.log('Куку');
-    activePopup.classList.remove('popup_open');
+    closeModal(activePopup);
   }
   // console.log(evt);
 }
@@ -170,8 +181,17 @@ modalImage.querySelector('.popup__exit-button').addEventListener('click', () => 
 //Close all modal
 function closeModal(modal) {
   modal.classList.remove('popup_open');
-  modal.removeEventListener('mousedown', (evt) => {});
+  document.removeEventListener('keydown', handleEscUp);
+  modal.removeEventListener('mousedown', closeOverley(modal));
 }
+// Рабочая
+// function closeModal(modal) {
+//   modal.classList.remove('popup_open');
+
+//   modal.removeEventListener('mousedown', (evt) => {});
+
+//   document.removeEventListener('keydown', handleEscUp);
+// }
 // get data in profile
 const profileElement = document.querySelector('.profile');
 const nameInput = document.querySelector('.popup__input_text_name');

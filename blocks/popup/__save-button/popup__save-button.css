@@ -20,6 +20,6 @@
         height: 46px;
     }
 }
-.popup__save-button:hover {
+.popup__save-button:hover:enabled {
     opacity: .8;
 }

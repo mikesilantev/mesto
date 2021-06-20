@@ -13,5 +13,5 @@
   transition: all .2s ease-in-out;
   visibility: hidden;
   opacity: 0;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
