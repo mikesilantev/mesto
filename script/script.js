@@ -110,11 +110,19 @@ buttonAdd.addEventListener('click', () => {
 function openModal(modal) {
   modal.classList.toggle('popup_open');
   addListenerForm(modal);
+  resetForm(modal);
+}
+
+const resetForm = (modal) => {
   if (modal.classList.contains('popup_type_add')){
     const resetForm = modal.querySelector('.popup__form');
     resetForm.reset();
   }
-}
+};
+
+
+
+
 const addListenerForm = (modal) => {
   document.addEventListener('keydown', handleEscUp);
   modal.addEventListener('mousedown', closeOverley(modal));
