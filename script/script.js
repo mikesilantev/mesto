@@ -92,7 +92,15 @@ function addCard() {
     closeModal(modalAdd);
     locInput.value = '';
     urlInput.value = '';
+    returnDisabledButton();
   }
+
+  const returnDisabledButton = () => {
+    const saveButton = modalAdd.querySelector('.popup__save-button');
+    saveButton.classList.add('popup__save-button_disabled');
+    saveButton.setAttribute('disabled', 'disabled');
+    console.log(saveButton);
+  } 
 
 //Button - edit profile
 const buttonEdit = document.querySelector('.profile__edit-button');
@@ -110,63 +118,19 @@ buttonAdd.addEventListener('click', () => {
 function openModal(modal) {
   modal.classList.toggle('popup_open');
   addListenerForm(modal);
-  resetForm(modal);
 }
-
-const resetForm = (modal) => {
-  if (modal.classList.contains('popup_type_add')){
-    const resetForm = modal.querySelector('.popup__form');
-    resetForm.reset();
-  }
-};
-
-
-
 
 const addListenerForm = (modal) => {
   document.addEventListener('keydown', handleEscUp);
-  modal.addEventListener('mousedown', closeOverley(modal));
+  modal.addEventListener('mousedown', closeOverley);
 };
-const closeOverley = function(modal){
-  modal.addEventListener('mousedown', (evt) =>{
-    if (evt.target.classList.contains('popup_open')) {
-      closeModal(modal);
-    }
-  });
-}
-//Reset
-// const resetError = (modal) => {
-//   if ((modal.classList.contains('popup_type_add')) || (modal.classList.contains('popup_type_edit'))) {
-//     const popupForm = modal.querySelector('.popup__form');
-//     popupForm.reset();
-//     // console.log(popupForm);
-//     // modal.reset();
-//   }
-// };
 
-// Overley click close 
-// const closeOverley = function(modal){
-//   modal.addEventListener('mousedown', (evt) => {
-//     if (evt.target.classList.contains('popup_open')){
-//       console.log(evt);
-//     };
-//   });
-// }
-// const closeOverley = (modal) => {
-//   modal.addEventListener('mousedown', (evt) => {
-//     if (evt.target.classList.contains('popup_open')) {
-
-//       closeModal(modal);
-      
-//       console.log(modal);
-//       console.log('Вызываем функцию closeModal');
-//     } else {
-//       console.log('Я не оверлей');
-//     }
-    
-//   });
-
-// };
+const closeOverley = function(evt){
+  console.log(evt.target);
+  if (evt.target.classList.contains('popup_open')) {
+    closeModal(evt.target);
+  }
+};
 
 // ESC close
 const handleEscUp = (evt) => {
@@ -197,7 +161,7 @@ modalImage.querySelector('.popup__exit-button').addEventListener('click', () => 
 function closeModal(modal) {
   modal.classList.remove('popup_open');
   document.removeEventListener('keydown', handleEscUp);
-  modal.removeEventListener('mousedown', closeOverley(modal));
+  modal.removeEventListener('mousedown', closeOverley);
 }
 
 
